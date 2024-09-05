@@ -16,7 +16,7 @@ function Home() {
       <h1>Welcome to SkillUp</h1>
       <p>Your ultimate platform for learning and skill development</p>
       <div className="sections">
-        Home
+        Home (Ghar)
         {/* <Section image={college} title="College Academics" />
         <Section image={webdev} title="Web Development" />
         <Section image={ai_ml} title="AI/ML" />
