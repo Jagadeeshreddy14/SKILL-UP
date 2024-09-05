@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import { Link } from 'react-router-dom';
 import './header.css'; // Assuming you have a CSS file for styling
 
 function Header() {
@@ -6,9 +7,9 @@ function Header() {
     <header className="header">
       <div className="logo">SkillUp</div>
       <nav>
-        <a href="#">Home</a>
-        <a href="#">Login/Signup</a>
-        <a href="#">Student Profile</a>
+        <Link to="/">Home</Link>
+        <Link to="/login">Login/Signup</Link>
+        <Link to="/profile">Student Profile</Link>
       </nav>
     </header>
   );
