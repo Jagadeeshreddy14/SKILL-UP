@@ -57,6 +57,7 @@ npm start
 The application will run on `http://localhost:3000`.
 
 ## Contributing
+read the contribution rules here : [CONTRIBUTING.md](https://github.com/amanbind898/skill-development-portal/blob/main/CONTRIBUTING.md)
 
 
 ## Code of Conduct
