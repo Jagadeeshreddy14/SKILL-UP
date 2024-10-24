@@ -1,0 +1,30 @@
+.home {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f8d7da;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.home h1{
+  font-size: 2.4rem;
+}
+
+.home p{
+  font-size: 1.2rem;
+}
+  
+.sections {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+  margin-inline: 300px;
+  padding: 0 30px;
+}
+
+.sections img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
