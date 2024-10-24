@@ -83,7 +83,7 @@ Examples of unacceptable behavior include:
 Project maintainers are responsible for ensuring that the community is a safe place for all contributors and have the right to remove comments, commits, and contributions that violate this Code of Conduct.
 
 ### Enforcement
-Instances of abusive or unacceptable behavior may be reported by contacting the project team at [email@example.com](mailto:email@example.com). All complaints will be reviewed and investigated, and the necessary actions will be taken to maintain a safe environment.
+Instances of abusive or unacceptable behavior may be reported by contacting the project team at [aman.2201086cs@iiitbh.ac.in](mailto:aman.2201086cs@iiitbh.ac.in). All complaints will be reviewed and investigated, and the necessary actions will be taken to maintain a safe environment.
 
 ## License
 
@@ -91,4 +91,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any questions or support, reach out to us at [email@example.com](mailto:email@example.com).
+For any questions or support, reach out to us..
