@@ -35,23 +35,33 @@ Welcome to the **Skill Development Portal** for our college students! This platf
 ## Getting Started
 
 ### Clone the Repository
+
 ```bash
 git clone https://github.com/your-username/skill-development-portal.git
 ```
 
 ### Navigate to the Project Directory
+
 ```bash
 cd skill-development-portal
 ```
 
+### Navigate to the frontend Directory
+
+```bash
+cd frontend
+```
+
 ### Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### Run the Application
+
 ```bash
-npm start
+npm run dev
 ```
 
 The application will run on `http://localhost:3000`.
