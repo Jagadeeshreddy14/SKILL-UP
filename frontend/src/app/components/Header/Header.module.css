@@ -20,6 +20,7 @@
     padding: 8px;
     text-decoration: none;
     transition: .2s linear;
+    margin-right: 10px;
   }
 
   .header nav a:hover {
