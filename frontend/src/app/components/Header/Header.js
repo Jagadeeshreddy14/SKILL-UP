@@ -41,14 +41,17 @@ export default function Header() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute top-full left-0 w-full bg-white rounded-lg shadow-lg p-4 space-y-3 md:hidden">
-          <Link href="/" className={`${styles.navLink} block`} onClick={() => setIsOpen(false)}>Home</Link>
-          <Link href="/profile" className={`${styles.navLink} block`} onClick={() => setIsOpen(false)}>Student Profile</Link>
+          <Link href="/" className={`${styles.navLink} block border-t border-gray-200`} onClick={() => setIsOpen(false)}>Home</Link>
+          <Link href="/profile" className={`${styles.navLink} block border-t border-gray-200`} onClick={() => setIsOpen(false)}>Student Profile</Link>
+          <Link href="/dashboard" className={`${styles.navLink} block border-t border-gray-200`} onClick={() => setIsOpen(false)}>Dashboard</Link>
+          <div className="border-t border-gray-200 items-center justify-center flex">
           <SignedOut>
             <SignInButton />
           </SignedOut>
           <SignedIn>
-            <UserButton />
+            <UserButton /> 
           </SignedIn>
+          </div>
         </div>
       )}
     </header>
