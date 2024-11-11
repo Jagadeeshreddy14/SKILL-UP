@@ -27,6 +27,23 @@
     flex-direction: row-reverse;
 }
 
+.button {
+    max-width: fit-content;
+    padding: 17px 70px;
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: #17253c;
+    color: white;
+    transition: .1s linear;
+    text-wrap: nowrap;
+  }
+  
+  .button:hover {
+    color: #17253c;
+    border: 2px solid #17253c;
+    background-color: transparent;
+  }
+
 @media screen and (max-width: 768px) {
     .section {
         padding: 20px;
@@ -42,7 +59,7 @@
         text-align: right;
     }
 
-    .section:nth-of-type(even) > div{
+    .section:nth-of-type(even) > div {
         text-align: left;
     }
 
@@ -58,7 +75,7 @@
         margin: 0;
     } 
 
-    .section:nth-of-type(odd) > div > a{
+    .section:nth-of-type(odd) > div > a {
         align-self: flex-end;
     }
 }

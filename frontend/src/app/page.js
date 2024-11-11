@@ -10,14 +10,14 @@ export default function Home() {
         <h2>Study Paths</h2>
         <p>Choose a path that suits your interests and goals</p>
         <div className={styles.sections}>
-          <Section image="/college.png" title="College Academics" />
-          <Section image="/webdev.png" title="Web Dev" />
-          <Section image="/ai_ml.png" title="AI/ML" />
-          <Section image="/dsa.png" title="Data Structures & Algorithms" />
-          <Section image="/cp.png" title="Competitive Programming" />
-          <Section image="/blockchain.png" title="Blockchain" />
-          <Section image="/cybersecurity.jpg" title="CyberSecurity" />
-          <Section image="/interview.jpg" title="Interview Preparation" />
+          <Section image="/college.png" title="College Academics" path="/courses/pages/academics" />
+          <Section image="/webdev.png" title="Web Dev" path="/courses/pages/web-dev"/>
+          <Section image="/ai_ml.png" title="AI/ML" path="/courses/pages/ai-ml" />
+          <Section image="/dsa.png" title="Data Structures & Algorithms" path="/courses/pages/dsa" />
+          <Section image="/cp.png" title="Competitive Programming" path="/courses/pages/cp" />
+          <Section image="/blockchain.png" title="Blockchain" path="/courses/pages/blockchain" />
+          <Section image="/cybersecurity.jpg" title="CyberSecurity" path="/courses/pages/cyber-security" />
+          <Section image="/interview.jpg" title="Interview Preparation" path="/courses/pages/interview-prep" />
         </div>
       </div>
     </div>
