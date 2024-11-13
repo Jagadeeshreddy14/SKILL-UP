@@ -11,8 +11,8 @@ export default function Footer() {
         <p>Phone: +123-456-7890</p>
       </div>
       <div className={styles.followUs}>
-        <h3>Follow Us</h3>
-        <p>Facebook | Twitter | LinkedIn | Instagram</p>
+        <h3>Indian Institute of Information Technology (IIIT),Bhagalpur</h3>
+        <p>Sabour ,Bhagalpur, Bihar 813210</p>
       </div>
     </footer>
     </>

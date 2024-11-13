@@ -11,7 +11,7 @@ export default function Home() {
         <p>Choose a path that suits your interests and goals</p>
         <div className={styles.sections}>
           <Section image="/college.png" title="College Academics" path="/courses/pages/academics" />
-          <Section image="/webdev.png" title="Web Dev" path="/courses/pages/web-dev"/>
+          <Section image="/webdev.jpg" title="Web Dev" path="/courses/pages/web-dev"/>
           <Section image="/ai_ml.png" title="AI/ML" path="/courses/pages/ai-ml" />
           <Section image="/dsa.png" title="Data Structures & Algorithms" path="/courses/pages/dsa" />
           <Section image="/cp.png" title="Competitive Programming" path="/courses/pages/cp" />
