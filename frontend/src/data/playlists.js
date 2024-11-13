@@ -1,5 +1,6 @@
 // src/data/playlists.js
 const playlists = [
+  // -------------- WEB DEV---------------------
     {
       id: 'introduction',
       title: 'Installing VS Code',
@@ -237,7 +238,9 @@ const playlists = [
       ],
     },
 
-// ---------------------------------------------
+
+// ----------------- CP------------------------
+
 
     {
       id: 'cp',
@@ -357,11 +360,12 @@ const playlists = [
           { "id": "video-110", "url": "KnzlqtUDfIc", "title": "ROD CUTTING: Dynamic Programming", "watched": false },
           { "id": "video-111", "url": "G46kdLkQ_Sw", "title": "SUBSET SUM & PARTITION PROBLEM : Dynamic Programming", "watched": false },
           { "id": "video-112", "url": "Q0o9sU1r0FY", "title": "Longest Common Subsequence: Dynamic Programming", "watched": false }
-        
       ],
     },
 
-// ------------------------------------------
+
+// ---------------- DSA -----------------------
+
 
     {
       id: 'basics',
@@ -408,6 +412,7 @@ const playlists = [
           
         ]
     },
+
     {
       id: 'array',
       title: 'Array',
@@ -445,6 +450,7 @@ const playlists = [
         {"id": "35", "title": "Learn Redux in One video", "url": "J5By-Q4ZhZs", "watched": false}
       ]
     },
+
     {
       id: 'binarySearch',
       title: 'Binary Search',
@@ -632,8 +638,8 @@ const playlists = [
             "watched": false
         }
       ]
+    },
     
-      },
     {
       id: 'recursion',
       title: 'Recursion',
@@ -664,6 +670,7 @@ const playlists = [
         { "id": "video-57", "url": "AseUmwVNaoY", "title": "Count Inversions in an Array | Brute and Optimal", "watched": false },
       ]    
     },
+
     {
       id: 'sorting',
       title: 'Sorting',
@@ -696,6 +703,7 @@ const playlists = [
         },
       ]
     },
+
     {
       id: 'linkedList',
       title: 'Linked List',
@@ -732,6 +740,7 @@ const playlists = [
         {"id": "video-119", "url": "mG3KLugbOdc", "title": "L28. Design a Browser History | LinkedList Implementation", "watched": false},
       ]
     },
+
     {
       id: 'stack',
       title: 'Stack & Queue',
@@ -759,6 +768,7 @@ const playlists = [
         { "id": "video-139", "url": "mzqHlAW7jeE", "title": "Implement LFU cache in C++/Java | Leetcode(Hard)", "watched": false },
       ]      
     },
+
     {
       id: 'greedy',
       title: 'Greedy',
@@ -780,6 +790,7 @@ const playlists = [
         { id: 'video-152', url: '1ibsQrnuEEg', title: 'Fractional Knapsack Algorithm', watched: false }
       ]
     },
+
     {
       id: 'trees',
       title: 'Binary Tree & BST',
@@ -841,6 +852,7 @@ const playlists = [
         {"id": "video-205", "url": "X0oXMdtUDwo", "title": "L53. Largest BST in Binary Tree", "watched": false}
       ]
     },
+
     {
       id: 'trie',
       title: 'Trie',
@@ -856,6 +868,7 @@ const playlists = [
         { "id": "video-212", "url": "Q8LhG9Pi5KM", "title": "Maximum XOR With an Element From Array | Queries | C++ | Java", "watched": false }
       ]      
     },
+
     {
       id: 'graph',
       title: 'Graph',
@@ -920,11 +933,12 @@ const playlists = [
           {"id": "video-268", "url": "j1QDfU21iZk", "title": "G-56. Articulation Point in Graph", "watched": false}
         ]        
     },
+
     {
       id: 'dp',
       title: 'Dynamic Programming',
       description: 'Trie Series',
-      category: 'dsa', // Add category field
+      category: 'dsa',
       videos: [
         {"id": "video-269", "url": "FfXoiwwnxFw", "title": "Striver's Dynamic Programming Series | The ULTIMATE | The BIGGEST | Teaser #shorts", "watched": false},
         {"id": "video-270", "url": "tyB0ztf0DNY", "title": "DP 1. Introduction to Dynamic Programming | Memoization | Tabulation | Space Optimization Techniques", "watched": false},
@@ -985,8 +999,442 @@ const playlists = [
         {"id": "video-325", "url": "auS1fynpnjo", "title": "DP 56. Count Square Submatrices with All Ones | DP on Rectangles 🔥", "watched": false}
       ]            
     },
-    
-  ];
+
+
+    // ------------ BlockChain -------------------
+
+
+    {
+      id: 'Solidity',
+      title: 'Solidity 0.8',
+      description: 'Solidity 0.8',
+      category: 'blockchain', // Add category field
+      videos: [
+        {"id": "video-1", "url": "xv9OmztShIw", "title": "Solidity 0.8 New Features", "watched": false},
+        {"id": "video-2", "url": "g_t0Td4Kr6M", "title": "Hello World | Solidity 0.8", "watched": false},
+        {"id": "video-3", "url": "8Tj-Th_S7NU", "title": "Value Types | Solidity 0.8", "watched": false},
+        {"id": "video-4", "url": "Mm6834AAY00", "title": "Introduction to Functions | Solidity 0.8", "watched": false},
+        {"id": "video-5", "url": "hl692-xJPUQ", "title": "State Variables | Solidity 0.8", "watched": false},
+        {"id": "video-6", "url": "5Gxzwn0SQDU", "title": "Local Variables | Solidity 0.8", "watched": false},
+        {"id": "video-7", "url": "ryA86ZiSD-w", "title": "Global Variables | Solidity 0.8", "watched": false},
+        {"id": "video-8", "url": "vOmXqJ4Qzbc", "title": "View and Pure Functions | Solidity 0.8", "watched": false},
+        {"id": "video-9", "url": "zzT3a7BJxgw", "title": "Counter | Solidity 0.8 Application", "watched": false},
+        {"id": "video-10", "url": "TPnu-uqJiVI", "title": "Default Values | Solidity 0.8", "watched": false},
+        {"id": "video-11", "url": "y5uiQ9IJhMc", "title": "Constants | Solidity 0.8", "watched": false},
+        {"id": "video-12", "url": "Ld8bFWXLSfs", "title": "If Else | Solidity 0.8", "watched": false},
+        {"id": "video-13", "url": "SB705OK3bUg", "title": "For and While Loops | Solidity 0.8", "watched": false},
+        {"id": "video-14", "url": "59MRDldSItU", "title": "Error | Solidity 0.8", "watched": false},
+        {"id": "video-15", "url": "b6FBWsz7VaI", "title": "Function Modifier | Solidity 0.8", "watched": false},
+        {"id": "video-16", "url": "7XwWBr4TAz4", "title": "Constructor | Solidity 0.8", "watched": false},
+        {"id": "video-17", "url": "QEJYSuyYOfw", "title": "Ownable | Solidity 0.8", "watched": false},
+        {"id": "video-18", "url": "je7dWT6bEZM", "title": "Function Outputs | Solidity 0.8", "watched": false},
+        {"id": "video-19", "url": "vTxxCbwMPwo", "title": "Array | Solidity 0.8", "watched": false},
+        {"id": "video-20", "url": "szv2zJcy_Xs", "title": "Array Remove An Element By Shifting | Solidity 0.8", "watched": false},
+        {"id": "video-21", "url": "8i4CChP99XQ", "title": "Array Remove An Element By Replacing Last | Solidity 0.8", "watched": false},
+        {"id": "video-22", "url": "Q-wRG7pngn0", "title": "Mapping | Solidity 0.8", "watched": false},
+        {"id": "video-23", "url": "YOjo_lvUhj8", "title": "Iterable Mapping | Solidity 0.8", "watched": false},
+        {"id": "video-24", "url": "pQJ4TeHifdk", "title": "Struct | Solidity 0.8", "watched": false},
+        {"id": "video-25", "url": "5Ojnbn0rkmI", "title": "Enum | Solidity 0.8", "watched": false},
+        {"id": "video-26", "url": "YbRGTF1OGdM", "title": "Deploy Any Contract | Solidity 0.8", "watched": false},
+        {"id": "video-27", "url": "wOCIhzAuhgs", "title": "Storage, Memory and Calldata | Solidity 0.8", "watched": false},
+        {"id": "video-28", "url": "YNu4wH2DXoU", "title": "Simple Storage | Solidity 0.8", "watched": false},
+        {"id": "video-29", "url": "CnHFNadyla0", "title": "Todo List | Solidity 0.8", "watched": false},
+        {"id": "video-30", "url": "nopo9KwwRg4", "title": "Event | Solidity 0.8", "watched": false},
+        {"id": "video-31", "url": "Ck5PUwL2D6I", "title": "Inheritance | Solidity 0.8", "watched": false},
+        {"id": "video-32", "url": "ITxPOG9Djwc", "title": "Multiple Inheritances | Solidity 0.8", "watched": false},
+        {"id": "video-33", "url": "nPtEpw4olSk", "title": "Calling Parent Constructors | Solidity 0.8", "watched": false},
+        {"id": "video-34", "url": "lqRYnIejWMk", "title": "Calling Parent Functions | Solidity 0.8", "watched": false},
+        {"id": "video-35", "url": "f4sD6F-OhMY", "title": "Visibility | Solidity 0.8", "watched": false},
+        {"id": "video-36", "url": "nQi8lVi4xT4", "title": "Immutable | Solidity 0.8", "watched": false},
+        {"id": "video-37", "url": "A4VMhRIWSs0", "title": "Payable | Solidity 0.8", "watched": false},
+        {"id": "video-38", "url": "CMVC6Tp9gq4", "title": "Fallback | Solidity 0.8", "watched": false},
+        {"id": "video-39", "url": "mlPc3EW-nNA", "title": "Send ETH | Solidity 0.8", "watched": false},
+        {"id": "video-40", "url": "4w_bMkoo2uw", "title": "Ether Wallet | Solidity 0.8", "watched": false},
+        {"id": "video-41", "url": "6aQErpWPLbk", "title": "Call Other Contracts | Solidity 0.8", "watched": false},
+        {"id": "video-42", "url": "tbjyc-VQaQo", "title": "Interface | Solidity 0.8", "watched": false},
+        {"id": "video-43", "url": "xIAs2S9aCKo", "title": "Call | Solidity 0.8", "watched": false},
+        {"id": "video-44", "url": "uawCDnxFJ-0", "title": "Delegatecall | Solidity 0.8", "watched": false},
+        {"id": "video-45", "url": "J2Wp2SHq1Qo", "title": "New | Solidity 0.8", "watched": false},
+        {"id": "video-46", "url": "OH5mafV6jVE", "title": "Library | Solidity 0.8", "watched": false},
+        {"id": "video-47", "url": "wCD3fOlsGc4", "title": "Keccak256 Hash Function | Solidity 0.8", "watched": false},
+        {"id": "video-48", "url": "vYwYe-Gv_XI", "title": "Verify Signature | Solidity 0.8", "watched": false},
+        {"id": "video-49", "url": "tfk25O-5Ppg", "title": "Access Control | Solidity 0.8", "watched": false},
+        {"id": "video-50", "url": "ajCsPRl5S3Q", "title": "Deleting Contracts | Solidity 0.8", "watched": false},
+        {"id": "video-51", "url": "Geio70-SfSE", "title": "Piggy Bank | Solidity 0.8", "watched": false},
+        {"id": "video-52", "url": "gwn1rVDuGL0", "title": "ERC20 | Solidity 0.8", "watched": false},
+        {"id": "video-53", "url": "8ja72g_Dac4", "title": "Multi Sig Wallet | Solidity 0.8", "watched": false},
+        {"id": "video-54", "url": "Mn4e4w8h6n8", "title": "Function Selector | Solidity 0.8", "watched": false},
+        {"id": "video-55", "url": "Ykt2Wqt6pBQ", "title": "Dutch Auction | Solidity 0.8", "watched": false},
+        {"id": "video-56", "url": "ZeFjGJpzI7E", "title": "English Auction | Solidity 0.8", "watched": false},
+        {"id": "video-57", "url": "P-4ucHdjGpU", "title": "Crowd Fund | Solidity 0.8", "watched": false},
+        {"id": "video-58", "url": "883-koWrsO4", "title": "Create2 | Solidity 0.8", "watched": false},
+        {"id": "video-59", "url": "PDR054Cy8qM", "title": "Multi Call | Solidity 0.8", "watched": false},
+        {"id": "video-60", "url": "NkTWU6tc9WU", "title": "Multi Delegatecall | Solidity 0.8", "watched": false},
+        {"id": "video-61", "url": "LTh58SFEYqE", "title": "ABI Decode | Solidity 0.8", "watched": false},
+        {"id": "video-62", "url": "4r20M9Fr8lY", "title": "Gas Golf | Solidity 0.8", "watched": false},
+        {"id": "video-63", "url": "P1f2a5Ckjpg", "title": "Time Lock | Solidity 0.8", "watched": false},
+        {"id": "video-64", "url": "UqKQ1bTatUs", "title": "WETH | Solidity 0.8", "watched": false},
+        {"id": "video-65", "url": "HHoa0c3AOqo", "title": "Vault | Solidity 0.8", "watched": false},
+        {"id": "video-66", "url": "Luff_OGvYtI", "title": "Constant Sum Automated Market Maker | Solidity 0.8", "watched": false},
+        {"id": "video-67", "url": "JSZbvmyi_LE", "title": "Constant Product Automated Market Maker | Solidity 0.8", "watched": false},
+        {"id": "video-68", "url": "OJ-IRzCYSXI", "title": "Staking Rewards | Solidity 0.8", "watched": false},
+        {"id": "video-69", "url": "i2o4TfSC9nA", "title": "Bitwise Operators | Solidity 0.8", "watched": false},
+        {"id": "video-70", "url": "M6awK0lskR4", "title": "Most Significant Bit using Binary Search Code | Solidity 0.8", "watched": false},
+        {"id": "video-71", "url": "Y6mMnIZ7AAo", "title": "Call Functions with Key Value Inputs | Solidity 0.8", "watched": false},
+        {"id": "video-72", "url": "9PBq9HfBUDY", "title": "ERC721 | Solidity 0.8", "watched": false},
+        {"id": "video-73", "url": "70_2YHJvKIc", "title": "3 Ways to Encode Call Data | Solidity 0.8", "watched": false},
+        {"id": "video-74", "url": "xluCHy_HB-4", "title": "Wrong Way To Write an Upgradeable Proxy - Transparent Upgradeable Proxy - Part 1 | Solidity 0.8", "watched": false},
+        {"id": "video-75", "url": "KGmV8-NdPgE", "title": "Return Data From Fallback - Transparent Upgradeable Proxy - Part 2 | Solidity 0.8", "watched": false},
+        {"id": "video-76", "url": "RcyCW1nigog", "title": "Write to Any Slot - Transparent Upgradeable Proxy - Part 3 | Solidity 0.8", "watched": false},
+        {"id": "video-77", "url": "EUOERNErbyI", "title": "Proxy Admin - Transparent Upgradeable Proxy - Part 5 | Solidity 0.8", "watched": false},
+        {"id": "video-78", "url": "_I1n1WbRz7o", "title": "Discrete Staking Rewards | Solidity 0.8", "watched": false},
+        {"id": "video-79", "url": "_pvup5lyC3Q", "title": "Unchecked Math | Solidity 0.8", "watched": false},
+        {"id": "video-80", "url": "0qQUhsPafJc", "title": "Simple Bytecode Contract | Solidity 0.8", "watched": false},
+        {"id": "video-81", "url": "yVh_klUBjWI", "title": "Most Significant Bit in Assembly | Solidity 0.8", "watched": false},
+        {"id": "video-82", "url": "hcQyRmFOmvA", "title": "Input and Output with Fallback | Solidity 0.8", "watched": false},
+        {"id": "video-83", "url": "CLhPUrxwP7k", "title": "Admin and User Interface - Transparent Upgradeable Proxy - Part 4 | Solidity 0.8", "watched": false},
+        {"id": "video-84", "url": "tgs5q-GJmg4", "title": "Introduction | Testing with Foundry", "watched": false},
+        {"id": "video-85", "url": "HA0GWauMOsU", "title": "How to Write Basic Tests | Testing with Foundry", "watched": false},
+        {"id": "video-86", "url": "bmOxtjzFcbk", "title": "Set Solidity Compiler Version | Testing with Foundry", "watched": false},
+        {"id": "video-87", "url": "7DK75j8csTA", "title": "Remappings | Testing with Foundry", "watched": false},
+        {"id": "video-88", "url": "k55TIWUFLbQ", "title": "Auto Format Code | Testing with Foundry", "watched": false},
+        {"id": "video-89", "url": "pO3kfXCFLuE", "title": "Console Log | Testing with Foundry", "watched": false},
+        {"id": "video-90", "url": "gYwO3Jbi4O4", "title": "Authentication | Testing with Foundry", "watched": false},
+        {"id": "video-91", "url": "yY9lL4Jxkd8", "title": "Error | Testing with Foundry", "watched": false},
+        {"id": "video-92", "url": "GYwKDSSpzjQ", "title": "Event | Testing with Foundry", "watched": false},
+        {"id": "video-93", "url": "B_3Kax70sF4", "title": "Time | Testing with Foundry", "watched": false},
+        {"id": "video-94", "url": "GuwUC-Wy_B0", "title": "Send ETH | Testing with Foundry", "watched": false},
+        {"id": "video-95", "url": "cs5IeYqviSQ", "title": "Signature | Testing with Foundry", "watched": false},
+        {"id": "video-96", "url": "jYNnatXRsBs", "title": "Gas-less Token Transfer - Code | Solidity 0.8", "watched": false},
+        {"id": "video-97", "url": "YJN7MMllK8M", "title": "Gas-less Token Transfer - Test | Testing with Foundry", "watched": false},
+        {"id": "video-98", "url": "eKxJZgp9CTg", "title": "Fork | Testing with Foundry", "watched": false},
+        {"id": "video-99", "url": "whjRc4H-rAc", "title": "Tornado Cash Hack - How to Deploy Different Contracts At the Same Address | DeFi", "watched": false},
+        {"id": "video-100", "url": "I8mzJxMBzs0", "title": "Mint 1 Million DAI on Mainnet Fork | Testing with Foundry", "watched": false},
+        {"id": "video-101", "url": "6sMOeuqwk-U", "title": "Fuzz | Testing with Foundry", "watched": false},
+        {"id": "video-102", "url": "JtzBi67hgLI", "title": "Invariant Testing - Part 1 - Open Testing | Testing with Foundry", "watched": false},
+        {"id": "video-103", "url": "RFOqce1rz7U", "title": "Invariant Testing - Part 2 - Handler Based Testing | Testing with Foundry", "watched": false},
+        {"id": "video-104", "url": "kPx4K8kRvUQ", "title": "Invariant Testing - Part 3 - Actor Management | Testing with Foundry", "watched": false},
+        {"id": "video-105", "url": "DTyn5ShI2vQ", "title": "FFI | Testing with Foundry", "watched": false},
+        {"id": "video-106", "url": "WhZQhxOG124", "title": "Differential Test | Testing with Foundry", "watched": false},
+        {"id": "video-107", "url": "Ai7A-_umm08", "title": "ERC1155 Intro", "watched": false},
+        {"id": "video-108", "url": "C4i4CDGb9A0", "title": "ERC1155 | Solidity 0.8", "watched": false},
+        {"id": "video-109", "url": "WW_xRGXSr7Q", "title": "Constructor | Uniswap V3 Core Contract Explained - Part 0", "watched": false},
+        {"id": "video-110", "url": "p_buwIBauqk", "title": "Price, Tick and Tick Spacing | Uniswap V3 Core Contract Explained - Part 1", "watched": false},
+        {"id": "video-111", "url": "TLYLHyopqaU", "title": "Max Liquidity Per Tick | Uniswap V3 Core Contract Explained - Part 2", "watched": false},
+        {"id": "video-112", "url": "KUh_GSrKe_s", "title": "Initialize and Slot 0 | Uniswap V3 Core Contract Explained - Part 3", "watched": false},
+        {"id": "video-113", "url": "4ORHTWEQD_c", "title": "Sqrt Price X 96 | Uniswap V3 Core Contract Explained - Part 4", "watched": false},
+        {"id": "video-114", "url": "YNeWPe8HIrQ", "title": "Sqrt Price X 96 to Tick | Uniswap V3 Core Contract Explained - Part 5", "watched": false},
+        {"id": "video-115", "url": "KfdjJHIVjGE", "title": "Mint | Uniswap V3 Core Contract Explained - Part 6", "watched": false},
+        {"id": "video-116", "url": "G5TVlfnmaLg", "title": "Update Position | Uniswap V3 Core Contract Explained - Part 7", "watched": false},
+        {"id": "video-117", "url": "6UjNyqujHV8", "title": "Update Tick | Uniswap V3 Core Contract Explained - Part 8", "watched": false},
+        {"id": "video-118", "url": "X6y42QbVSp4", "title": "Liquidity, Price and Token Reservers | Uniswap V3 Core Contract Explained - Part 9", "watched": false},
+        {"id": "video-119", "url": "U_oL8Nr2SjQ", "title": "Liquidity Net | Uniswap V3 Core Contract Explained - Part 10", "watched": false},
+        {"id": "video-120", "url": "7dkTNlaM2co", "title": "Equation of Real Reserves Curve | Uniswap V3 Core Contract Explained - Part 11", "watched": false},
+        {"id": "video-121", "url": "CS9hMKaVNLY", "title": "Real Amounts | Uniswap V3 Core Contract Explained - Part 12", "watched": false},
+        {
+          "id": 122,
+          "url": "https://www.youtube.com/watch?v=dPkrI2VzuAk",
+          "title": "Liquidity | Uniswap V3 Core Contract Explained - Part 13",
+          "watched": false
+        },
+        {
+          "id": 123,
+          "url": "https://www.youtube.com/watch?v=f6QVx_Ti-pM",
+          "title": "Liquidity Delta | Uniswap V3 Core Contract Explained - Part 14",
+          "watched": false
+        },
+        {
+          "id": 124,
+          "url": "https://www.youtube.com/watch?v=b24q2e8PeJ0",
+          "title": "Finishing up Modify Position | Uniswap V3 Core Contract Explained - Part 15",
+          "watched": false
+        },
+        {
+          "id": 125,
+          "url": "https://www.youtube.com/watch?v=0_pIzAGriJw",
+          "title": "Burn | Uniswap V3 Core Contract Explained - Part 16",
+          "watched": false
+        },
+        {
+          "id": 126,
+          "url": "https://www.youtube.com/watch?v=cidMXJuqmQc",
+          "title": "Collect | Uniswap V3 Core Contract Explained - Part 17",
+          "watched": false
+        },
+        {
+          "id": 127,
+          "url": "https://www.youtube.com/watch?v=52EXNJVm2Yw",
+          "title": "Compute Swap Step 1 | Uniswap V3 Core Contract Explained - Part 18",
+          "watched": false
+        },
+        {
+          "id": 128,
+          "url": "https://www.youtube.com/watch?v=VPVL9Eob524",
+          "title": "Compute Swap Step 2 | Uniswap V3 Core Contract Explained - Part 19",
+          "watched": false
+        },
+        {
+          "id": 129,
+          "url": "https://www.youtube.com/watch?v=d3J65fOHckw",
+          "title": "Swap Part 1 | Uniswap V3 Core Contract Explained - Part 20",
+          "watched": false
+        },
+        {
+          "id": 130,
+          "url": "https://www.youtube.com/watch?v=2mN8ECdfWOU",
+          "title": "Swap Part 2 | Uniswap V3 Core Contract Explained - Part 21",
+          "watched": false
+        },
+        {
+          "id": 131,
+          "url": "https://www.youtube.com/watch?v=5GMTf04lLdk",
+          "title": "Tick Bitmap | Uniswap V3 Core Contract Explained - Part 22",
+          "watched": false
+        },
+        {
+          "id": 132,
+          "url": "https://www.youtube.com/watch?v=g3O_7-aImw4",
+          "title": "Next Tick | Uniswap V3 Core Contract Explained - Part 23",
+          "watched": false
+        },
+        {
+          "id": 133,
+          "url": "https://www.youtube.com/watch?v=9sHmnwEcn1A",
+          "title": "Tick Bitmap Position and Flip Tick | Uniswap V3 Core Contract Explained - Part 24",
+          "watched": false
+        },
+        {
+          "id": 134,
+          "url": "https://www.youtube.com/watch?v=cXRbxeG9S0Q",
+          "title": "Assembly Variables | Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 135,
+          "url": "https://www.youtube.com/watch?v=RCtL3W7yFgU",
+          "title": "Assembly If and Switch Statements | Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 136,
+          "url": "https://www.youtube.com/watch?v=SFZ_NiBMDgA",
+          "title": "Assembly Error | Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 137,
+          "url": "https://www.youtube.com/watch?v=elKwcX_Zdt4",
+          "title": "Assembly Loop | Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 138,
+          "url": "https://www.youtube.com/watch?v=UeonlhTDn1g",
+          "title": "Assembly Overflow, Underflow and Fixed Point Math | Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 139,
+          "url": "https://www.youtube.com/watch?v=jMGUi-Uio4s",
+          "title": "Binary Exponentiation | Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 140,
+          "url": "https://www.youtube.com/watch?v=fN_jWYZPAdo",
+          "title": "Tick Bitmap Next Initialized Tick | Uniswap V3 Core Contract Explained - Part 25",
+          "watched": false
+        },
+        {
+          "id": 141,
+          "url": "https://www.youtube.com/watch?v=bRm-1avA34I",
+          "title": "Use Tick Bitmap | Uniswap V3 Core Contract Explained - Part 26",
+          "watched": false
+        },
+        {
+          "id": 142,
+          "url": "https://www.youtube.com/watch?v=iJGaeDWWnrA",
+          "title": "Swap Part 3 | Uniswap V3 Core Contract Explained - Part 27",
+          "watched": false
+        },
+        {
+          "id": 143,
+          "url": "https://www.youtube.com/watch?v=Yf96Lk5W4L8",
+          "title": "Fee Growth Inside Tick Library | Uniswap V3 Core Contract Explained - Part 39",
+          "watched": false
+        },
+        {
+          "id": 144,
+          "url": "https://www.youtube.com/watch?v=QYes65VHDLk",
+          "title": "Vault Inflation Attack | Hack Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 145,
+          "url": "https://www.youtube.com/watch?v=ym85v0p0mSY",
+          "title": "Fee Growth Inside Position Library | Uniswap V3 Core Contract Explained - Part 40",
+          "watched": false
+        },
+        {
+          "id": 146,
+          "url": "https://www.youtube.com/watch?v=aJnlBRSuOik",
+          "title": "WETH Permit | Hack Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 147,
+          "url": "https://www.youtube.com/watch?v=bu4_QqHaRTk",
+          "title": "Front Run ERC20 Approval | Hack Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 148,
+          "url": "https://www.youtube.com/watch?v=0-hiB5I39Mk",
+          "title": "Transient Storage | Solidity 0.8",
+          "watched": false
+        },
+        {
+          "id": 149,
+          "url": "https://www.youtube.com/watch?v=vTeav5Rinco",
+          "title": "State Variables Stored in a Single Slot | EVM Storage 1",
+          "watched": false
+        },
+        {
+          "id": 150,
+          "url": "https://www.youtube.com/watch?v=luCjY2IQEuw",
+          "title": "Bit Masking | EVM Storage 2",
+          "watched": false
+        },
+        {
+          "id": 151,
+          "url": "https://www.youtube.com/watch?v=Z0tC7B4c4Cc",
+          "title": "State Variables Packed into a Slot | EVM Storage 3",
+          "watched": false
+        },
+        {
+          "id": 152,
+          "url": "https://www.youtube.com/watch?v=xWkOlxerVJw",
+          "title": "Structs | EVM Storage 4",
+          "watched": false
+        },
+        {
+          "id": 153,
+          "url": "https://www.youtube.com/watch?v=JQZu-43MGhI",
+          "title": "Constants | EVM Storage 5",
+          "watched": false
+        },
+        {
+          "id": 154,
+          "url": "https://www.youtube.com/watch?v=74vyHBD_L1E",
+          "title": "Fixed Size Arrays | EVM Storage 6",
+          "watched": false
+        },
+        {
+          "id": 155,
+          "url": "https://www.youtube.com/watch?v=FUhimQzhk3w",
+          "title": "Dynamic Size Arrays | EVM Storage 7",
+          "watched": false
+        },
+        {
+          "id": 156,
+          "url": "https://www.youtube.com/watch?v=Ha0HE-uwp0M",
+          "title": "Mapping | EVM Storage 8",
+          "watched": false
+        },
+        {
+          "id": 157,
+          "url": "https://www.youtube.com/watch?v=lk_hiEGhXgU",
+          "title": "Nested Mapping | EVM Storage 9",
+          "watched": false
+        },
+        {
+          "id": 158,
+          "url": "https://www.youtube.com/watch?v=CkJYxORiWKE",
+          "title": "Mapping of Dynamic Array | EVM Storage 10",
+          "watched": false
+        },
+        {
+          "id": 159,
+          "url": "https://www.youtube.com/watch?v=eTtbR8iPjkw",
+          "title": "Dynamic Array of Structs | EVM Storage 11",
+          "watched": false
+        },
+        {
+          "id": 160,
+          "url": "https://www.youtube.com/watch?v=L_XtJbBwxWQ",
+          "title": "EVM Memory in Solidity | EVM Memory 1",
+          "watched": false
+        },
+        {
+          "id": 161,
+          "url": "https://www.youtube.com/watch?v=nzj3SDszSBY",
+          "title": "mstore and mload | EVM Memory 2",
+          "watched": false
+        },
+        {
+          "id": 162,
+          "url": "https://www.youtube.com/watch?v=vye4N60dLiw",
+          "title": "Memory Gas Cost | EVM Memory 3",
+          "watched": false
+        },
+        {
+          "id": 163,
+          "url": "https://www.youtube.com/watch?v=hGFE7C1MYg8",
+          "title": "Struct | EVM Memory 4",
+          "watched": false
+        },
+        {
+          "id": 164,
+          "url": "https://www.youtube.com/watch?v=0qmHQNM0i04",
+          "title": "Fixed Size Array | EVM Memory 5",
+          "watched": false
+        },
+        {
+          "id": 165,
+          "url": "https://www.youtube.com/watch?v=77I2f4HLKWg",
+          "title": "Dynamic Array | EVM Memory 6",
+          "watched": false
+        },
+        {
+          "id": 166,
+          "url": "https://www.youtube.com/watch?v=P3lwyC7hM58",
+          "title": "How data is returned from an internal function | EVM Memory 7",
+          "watched": false
+        },
+        {
+          "id": 167,
+          "url": "https://www.youtube.com/watch?v=V2UmrTydJXU",
+          "title": "ABI Encoding | EVM Memory 8",
+          "watched": false
+        },
+        {
+          "id": 168,
+          "url": "https://www.youtube.com/watch?v=tgdiySvNu2s",
+          "title": "Return | EVM Memory 9",
+          "watched": false
+        },
+        {
+          "id": 169,
+          "url": "https://www.youtube.com/watch?v=ddMPnzZOngQ",
+          "title": "Revert | EVM Memory 10",
+          "watched": false
+        },
+        {
+          "id": 170,
+          "url": "https://www.youtube.com/watch?v=r9kQc79VIfo",
+          "title": "Call | EVM Memory 10",
+          "watched": false
+        },
+        {
+          "id": 171,
+          "url": "https://www.youtube.com/watch?v=SvkgDRCzvlI",
+          "title": "User defined value type | Solidity 0.8",
+          "watched": false
+        },
+      ]
+    },
+
+];
   
   export default playlists;
   
