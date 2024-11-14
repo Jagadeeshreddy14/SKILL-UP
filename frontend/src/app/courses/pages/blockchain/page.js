@@ -104,7 +104,7 @@ function WebDevPage() {
 
               <Link href={`/playlists/${playlist.id}`} className="block bg-gray-100 p-2 rounded-lg flex-grow flex flex-col justify-between text-[#334155]">
                 <div>
-                  <h2 className="text-xl font-semibold mb-2">{playlist.title}</h2>
+                  <h2 className="text-xl font-semibold mb-2 text-center">{playlist.title}</h2>
                   <p className="text-sm text-gray-600 mb-4">{playlist.description}</p>
                 </div>
                 <div className="mb-2">
