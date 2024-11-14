@@ -1,17 +1,16 @@
 // pages/dashboard.js
 "use client";
-import { useEffect, useState } from 'react';
-import UserProfile from './_components/UserProfile';
-import Statistics from './_components/Statistics';
-import ProblemCategories from './_components/ProblemCategories';
-import Data  from './api/data';
+import { useEffect, useState } from "react";
+import UserProfile from "./_components/UserProfile";
+import Statistics from "./_components/Statistics";
+import ProblemCategories from "./_components/ProblemCategories";
+import Data from "../../../pages/api/data";
 export default function Dashboard() {
   const [userData, setUserData] = useState(null);
 
-
   useEffect(() => {
     async function fetchData() {
-        const data = await Data;
+      const data = await Data;
       setUserData(data);
     }
     fetchData();
