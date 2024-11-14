@@ -245,7 +245,7 @@ const playlists = [
     {
       id: 'cp',
       title: 'Competitive Programming',
-      description: 'Competitive Programming or DSA (Data Structure and Algorithms) Course For free. Today where a lot of students want to learn Competitive Programming  and the very fact is being exploited by lot of companies by providing expensive courses, this course is to provide free in depth material using which you can become good at Competitive Programming.',
+      description: 'Competitive Programming or DSA (Data Structure and Algorithms) Course',
       category: 'cp', // Add category field
       videos: [
           { "id": "video-1", "url": "A-9QuyAsD2U", "title": "Replace all HEADER FIlES with one SINGLE HEADER FILE in C++", "watched": false },
