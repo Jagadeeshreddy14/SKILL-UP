@@ -1,31 +1,46 @@
-// components/Statistics.js
-import { FaQuestionCircle, FaCalendarCheck, FaTrophy } from 'react-icons/fa';
+import React from "react";
+import PlatformCard from "./PlatformCard.js";
 
-export default function Statistics({ stats }) {
+const Statistics = ({ stats }) => {
+  console.log("Stats from statistics:", stats);
+
+  // Handle case where stats is a single object or empty
+  const statsArray = Array.isArray(stats) ? stats : stats ? [stats] : [];
+
+  const platforms = ["LeetCode", "Codeforces", "Codechef"];
+  const availableStats = statsArray.filter((stat) =>
+    platforms.includes(stat.platform)
+  );
+
   return (
-    <div className="grid grid-cols-3 gap-6 p-6 bg-white rounded-lg shadow-lg text-center">
-      
-      {/* Total Questions */}
-      <div className="flex flex-col items-center bg-blue-100 p-4 rounded-lg">
-        <FaQuestionCircle className="text-blue-500 text-3xl mb-2" />
-        <h3 className="text-3xl font-extrabold text-blue-700">{stats.totalQuestions}</h3>
-        <p className="text-sm font-medium text-gray-600">Total Questions</p>
-      </div>
-      
-      {/* Total Active Days */}
-      <div className="flex flex-col items-center bg-green-100 p-4 rounded-lg">
-        <FaCalendarCheck className="text-green-500 text-3xl mb-2" />
-        <h3 className="text-3xl font-extrabold text-green-700">{stats.totalActiveDays}</h3>
-        <p className="text-sm font-medium text-gray-600">Total Active Days</p>
-      </div>
-      
-      {/* Total Contests */}
-      <div className="flex flex-col items-center bg-yellow-100 p-4 rounded-lg">
-        <FaTrophy className="text-yellow-500 text-3xl mb-2" />
-        <h3 className="text-3xl font-extrabold text-yellow-700">{stats.totalContests}</h3>
-        <p className="text-sm font-medium text-gray-600">Total Contests</p>
-      </div>
-
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {availableStats.length > 0 ? (
+        platforms.map((platform) => {
+          const platformStats = statsArray.find(
+            (stat) => stat.platform === platform
+          );
+          return platformStats ? (
+            <PlatformCard
+              key={platform}
+              platform={platform}
+              stats={platformStats}
+            />
+          ) : (
+            <div
+              key={platform}
+              className="p-6 bg-gray-100 rounded-lg shadow-lg flex items-center justify-center text-gray-500"
+            >
+              No data available for {platform}.
+            </div>
+          );
+        })
+      ) : (
+        <div className="col-span-1 md:col-span-3 text-center text-gray-500">
+          No statistics available at the moment.
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Statistics;

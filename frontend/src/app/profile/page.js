@@ -32,6 +32,7 @@ function ProfilePage() {
           name: user.fullName || "",
           clerkId: clerkUserId,
           createdAt: new Date().toISOString(),
+          profilePic: user.imageUrl || "",
         });
         setIsNew(true);
         toast.success("Welcome, new user! Please fill in your details.");
@@ -111,7 +112,7 @@ function ProfilePage() {
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Your Profile</h1>
         <p className="text-gray-600">
-          Welcome, {isLoading ? <Skeleton width={150} /> : user.fullName}
+          Welcome, {isLoading ? <Skeleton width={150} /> : user?.fullName}
         </p>
         {isNew && <p className="text-red-500">New user! Please fill in your details below.</p>}
       </div>
