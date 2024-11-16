@@ -1,15 +1,28 @@
-import { pgTable, serial, text, varchar, date } from "drizzle-orm/pg-core";
+import { pgTable, serial, varchar, integer, date, timestamp, PgVarchar, PgInteger } from "drizzle-orm/pg-core";
 
-
-// ProfileData table schema for storing user login details and profile data
 export const ProfileData = pgTable('ProfileData', {
   id: serial('id').primaryKey(),
-  primaryEmail: varchar('primaryEmail').notNull(),  // User's primary email
-  name: varchar('name').notNull(),                  // Full name
-  clerkId: varchar('clerkId'), // clerk user id
-  dateOfBirth: date('dateOfBirth'),                 // Date of birth (optional)
-  leetCode: varchar('leetCode'),                    // Username on LeetCode
-  codeforces: varchar('codeforces'),                // Username on Codeforces
-  codechef: varchar('codechef'),                // Username on Codechef
-  createdAt: varchar('createdAt'),                  // Optional field for record creation timestamp
+  primaryEmail: varchar('primaryEmail').notNull(),
+  name: varchar('name').notNull(),
+  clerkId: varchar('clerkId'),
+  dateOfBirth: date('dateOfBirth'),
+  leetCode: varchar('leetCode'),
+  codeforces: varchar('codeforces'),
+  codechef: varchar('codechef'),
+  createdAt: varchar('createdAt'),
+});
+
+export const CodingPlatformStats = pgTable('CodingPlatformStats', {
+  id: serial('id').primaryKey(),
+  clerkId: varchar('clerkId').notNull(),
+  platform: varchar('platform').notNull(),
+  solvedCount: varchar('solvedCount').default(0),
+  rating: varchar('rating'),           // Optional field, implicitly nullable
+  highestRating: varchar('highestRating'), // Optional field, implicitly nullable
+  globalRank: varchar('globalRank'),    // Optional field, implicitly nullable
+  countryRank: varchar('countryRank'),  // Optional field, implicitly nullable
+  lastUpdated:varchar('lastUpdated'),
+  easyCount: varchar('easyCount').default(0),
+  mediumCount: varchar('mediumCount').default(0),
+  hardCount:varchar('hardCount').default(0),
 });
