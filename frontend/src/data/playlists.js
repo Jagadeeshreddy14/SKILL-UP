@@ -1434,6 +1434,648 @@ const playlists = [
       ]
     },
 
+
+    // --------------- AI/ML -------------------
+
+
+    {
+      id: 'ai',
+      title: 'AI',
+      description: 'AI Tutorial',
+      category: 'ai-ml', // Add category field
+      videos: [
+        {
+          "id": "video-1",
+          "url": "4jmsHaJ7xEA",
+          "title": "Artificial Intelligence | What is AI | Introduction to Artificial Intelligence | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-2",
+          "url": "JMUxmLyrhSk",
+          "title": "Artificial Intelligence Full Course | Artificial Intelligence Tutorial for Beginners | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-3",
+          "url": "UFDOY1wOOz0",
+          "title": "Artificial Intelligence in 2 Minutes | What is Artificial Intelligence? | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-4",
+          "url": "5hNK7-N23eU",
+          "title": "Introduction to Artificial Intelligence | Deep Learning | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-5",
+          "url": "0vfZFL-ftz0",
+          "title": "What is Artificial Intelligence | Artificial Intelligence Tutorial For Beginners | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-6",
+          "url": "Y46zXHvUB1s",
+          "title": "Top 10 Applications Of Artificial Intelligence in 2021 | Artificial Intelligence Training | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-7",
+          "url": "WZVAfLreIwM",
+          "title": "Artificial Intelligence Tutorial for Beginners | Artificial Intelligence Explained | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-8",
+          "url": "DhdUlDIAG7Y",
+          "title": "Q Learning Explained | Reinforcement Learning Using Python | Q Learning in AI | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-9",
+          "url": "oV74Najm6Nc",
+          "title": "What Is Artificial Intelligence? | Artificial Intelligence (AI) In 10 Minutes | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-10",
+          "url": "Pj0neYUp9Tc",
+          "title": "What is Machine Learning? | Machine Learning Basics | Machine Learning Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-11",
+          "url": "PbCl67GY1ck",
+          "title": "Breadth First Search Algorithm In 10 Minutes | BFS in Artificial Intelligence | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-12",
+          "url": "masnR4-vt3M",
+          "title": "Top 10 Benefits Of Artificial Intelligence in 2021 | Artificial Intelligence Advantages | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-13",
+          "url": "dafuAz_CV7Q",
+          "title": "What is Deep Learning | Deep Learning Simplified | Deep Learning Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-14",
+          "url": "WSbgixdC9g8",
+          "title": "AI vs Machine Learning vs Deep Learning | AI vs ML vs DL - Differences Explained | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-15",
+          "url": "nl_4WFHQ4LU",
+          "title": "Deep Learning Tutorial | Deep Learning Tutorial for Beginners | Neural Networks | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-16",
+          "url": "yX8KuPZCAMo",
+          "title": "TensorFlow Tutorial | Deep Learning Using TensorFlow | TensorFlow Tutorial Python | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-17",
+          "url": "fv6Qll3laUU",
+          "title": "Artificial Neural Network Tutorial | Deep Learning With Neural Networks | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-18",
+          "url": "y7qrilE-Zlc",
+          "title": "Recurrent Neural Networks (RNN) | RNN LSTM | Deep Learning Tutorial | Tensorflow Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-19",
+          "url": "umGJ30-15_A",
+          "title": "Convolutional Neural Network (CNN) | Convolutional Neural Networks With TensorFlow | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-20",
+          "url": "VpUKOLtqBSA",
+          "title": "Deep Learning Using TensorFlow | Deep Learning with Tensorflow Certification Training | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-21",
+          "url": "uh2Fh6df7Lg",
+          "title": "TensorFlow Explained | Deep Learning Using TensorFlow | TensorFlow Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-22",
+          "url": "wh7_etX91ls",
+          "title": "TensorFlow Object Detection | Realtime Object Detection with TensorFlow | TensorFlow Python | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-23",
+          "url": "XNKeayZW4dY",
+          "title": "Keras Tutorial For Beginners | Creating Deep Learning Models Using Keras In Python | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-24",
+          "url": "y5swZ2Q_lBw",
+          "title": "Types Of Artificial Intelligence | Artificial Intelligence Explained | What is AI? | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-25",
+          "url": "7O60HOZRLng",
+          "title": "Artificial Intelligence with Python | Artificial Intelligence Tutorial using Python | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-26",
+          "url": "V-O-RFSRe-E",
+          "title": "Knowledge Representation in AI | Semantic Networks | Artificial Intelligence Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-27",
+          "url": "_ThdIOA9Lbk",
+          "title": "Hill Climbing Algorithm | Hill Climbing in Artificial Intelligence | Data Science Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-28",
+          "url": "amlkE0g-YFU",
+          "title": "A* Algorithm in AI | A Star Search Algorithm | Artificial Intelligence Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-29",
+          "url": "K_Mh21P9OwA",
+          "title": "Top 10 Artificial Intelligence Technologies in 2020 | Artificial Intelligence Trends | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-30",
+          "url": "XCI5j_oEWmQ",
+          "title": "The Future of AI | How will Artificial Intelligence Change the World in 2020? | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-31",
+          "url": "Zsl7ttA9Kcg",
+          "title": "What is Cognitive AI? Cognitive Computing vs Artificial Intelligence | AI Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-32",
+          "url": "JFB_751d2uc",
+          "title": "Future of AI/ML | Rise Of Artificial Intelligence & Machine Learning | AI and ML Training | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-33",
+          "url": "Y2vMNCNM4_c",
+          "title": "AI in Space Science | Future of Artificial Intelligence | Artificial Intelligence Training | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-34",
+          "url": "-NTzW2Jvris",
+          "title": "How to become an Artificial Intelligence Engineer | AI Engineer Skills | Python Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-35",
+          "url": "bZwpXEgG0to",
+          "title": "AI Roadmap For 2021 | Learn AI | Artificial Intelligence Careers | Data Science Training | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-36",
+          "url": "FgzDw23vPDg",
+          "title": "AI Roadmap For 2021 | Learn AI | Artificial Intelligence Careers | Edureka Rewind",
+          "watched": false
+        },
+        {
+          "id": "video-37",
+          "url": "oB1-27Qk4sU",
+          "title": "Artificial Intelligence Tutorial for beginners | Edureka | Deep Learning Rewind - 3",
+          "watched": false
+        },
+        {
+          "id": "video-38",
+          "url": "aESz_y6U_x4",
+          "title": "Recurrent Neural Networks Tutorial | Tensorflow Tutorial | Edureka | Deep Learning Rewind - 4",
+          "watched": false
+        },
+        {
+          "id": "video-39",
+          "url": "GxhZs9X0YK8",
+          "title": "The Future of AI | How will Artificial Intelligence Change the World in 2020? | Edureka Rewind",
+          "watched": false
+        },
+        {
+          "id": "video-40",
+          "url": "spnQq0HXZVc",
+          "title": "How AI is changing the Gaming Industry in 2021 | Artificial Intelligence Training | Edureka Rewind",
+          "watched": false
+        },
+        {
+          "id": "video-41",
+          "url": "XXr5RnWzskA",
+          "title": "AI vs ML vs Deep Learning | Difference between AI, ML and DL | AI-ML Training | Edureka Rewind",
+          "watched": false
+        },
+        {
+          "id": "video-42",
+          "url": "cvCG5SdInZE",
+          "title": "How to become an AI Engineer | Artificial Intelligence Roadmap | AI Career Path | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-43",
+          "url": "7V_AebZFlpo",
+          "title": "Artificial Intelligence Project Ideas | Artificial Intelligence Training | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-44",
+          "url": "KvgCq9KsnAE",
+          "title": "Dangers of AI | How Dangerous is Artificial Intelligence | Learn AI | AI Training | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-45",
+          "url": "3M1wUK2zCKY",
+          "title": "Hierarchical Clustering | Agglomerative and Divisive Hierarchical Clustering Explained | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-46",
+          "url": "egOUSobY6N4",
+          "title": "Water Jug Problem in Artificial Intelligence | State Representation & Solution | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-47",
+          "url": "eciABhWBiUc",
+          "title": "Feature selection in Machine Learning | Feature Selection Techniques with Examples | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-48",
+          "url": "VOaoabf3LPM",
+          "title": "Artificial Intelligence Full Course in 10 Hours [2024] | Artificial Intelligence Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-49",
+          "url": "gMa_QHSAxOY",
+          "title": "Top 10 Generative AI Tools | Generative AI Tools | AI Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-50",
+          "url": "r9F-SjS5Ec0",
+          "title": "Hands-on Rust | Rust Tutorial | Rust Programming Language | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-51",
+          "url": "_JzMe6ijR0A",
+          "title": "Firebase Firestore Tutorial | Basics of Firestore | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-52",
+          "url": "7HfRNqRCkBc",
+          "title": "Artificial Intelligence Full Course in 10 Hours [2024] | Artificial Intelligence Tutorial | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-53",
+          "url": "THtGV_9lc68",
+          "title": "Artificial Intelligence Full Course - 10 Hours | Artificial Intelligence Tutorial [2024] | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-54",
+          "url": "dBvdGJVF4ic",
+          "title": "Midjourney AI Tutorial | Learn How To Use Midjourney AI Under 10 Minutes | Midjourney AI | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-55",
+          "url": "lAkjqDk4J4k",
+          "title": "AI Tutorial for Beginners | Artificial Intelligence (AI) for Beginners | AI Explained | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-56",
+          "url": "vck4kXGV63o",
+          "title": "AI for Business | How AI Could Empower Businesses | AI for Business Leaders | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-57",
+          "url": "COgvUFGLPCs",
+          "title": "What Is AI Ethics | AI Ethics Foundation | How to Implement AI Ethics | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-58",
+          "url": "e2_ftgGLTss",
+          "title": "AI and Industry 4.0 | Industry 4.0 with Artificial Intelligence | What is Industry 4.0 | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-59",
+          "url": "HA4G14DCiT0",
+          "title": "AI for Marketing |Top AI Marketing Tools | Beginner's Guide to AI Marketing | Generative AI | Edureka",
+          "watched": false
+        },
+        {
+          "id": "video-60",
+          "url": "FeNv9mQe8Vk",
+          "title": "Artificial Intelligence Full Course - 10 Hours | Artificial Intelligence Tutorial [2024] | Edureka",
+          "watched": false
+        }
+      ]
+    },
+
+    {
+      id: 'ml',
+      title: 'ML',
+      description: 'ML Series',
+      category: 'ai-ml', // Add category field
+      videos: [
+        {
+          "id": "video-61",
+          "url": "ukzFI9rgwfU",
+          "title": "Machine Learning | What Is Machine Learning? | Introduction To Machine Learning | 2024 | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-62",
+          "url": "cfSDvPlFFVQ",
+          "title": "Machine Learning | What Is Machine Learning? | Machine Learning Basics | 2023 | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-63",
+          "url": "YjMAasOOr4g",
+          "title": "Machine Learning Course | Machine Learning Full Course In 10 Hours | Machine Learning | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-64",
+          "url": "HKcO3-6TYr0",
+          "title": "Top 10 Applications of Machine Learning | Machine Learning Applications & Examples | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-65",
+          "url": "DWsJc1xnOZo",
+          "title": "Machine Learning Tutorial Part - 1 | Machine Learning Tutorial For Beginners Part - 1 | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-66",
+          "url": "_Wkx_447zBM",
+          "title": "Machine Learning Tutorial Part - 2 | Machine Learning Tutorial For Beginners Part - 2 | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-67",
+          "url": "9dFhZFUkzuQ",
+          "title": "Machine Learning vs Deep Learning vs Artificial Intelligence | ML vs DL vs AI | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-68",
+          "url": "iyxqcS1u5go",
+          "title": "Mathematics For Machine Learning | Essential Mathematics - Machine Learning Tutorial | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-69",
+          "url": "1FZ0A1QCMWc",
+          "title": "Supervised vs Unsupervised vs Reinforcement Learning | Machine Learning Tutorial | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-70",
+          "url": "I7NrVwm3apg",
+          "title": "Machine Learning Algorithms | Machine Learning Tutorial | Data Science Algorithms | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-71",
+          "url": "NUXdtN1W1FE",
+          "title": "Linear Regression Analysis | Linear Regression in Python | Machine Learning Algorithms | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-72",
+          "url": "XnOAdxOWXWg",
+          "title": "Logistic Regression | Logistic Regression in Python | Machine Learning Algorithms | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-73",
+          "url": "prWyZhcktn4",
+          "title": "Confusion Matrix TensorFlow | Confusion Matrix Explained With Example | 2023 | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-74",
+          "url": "2NEu9dbM4A8",
+          "title": "PCA In Machine Learning | Principal Component Analysis | Machine Learning Tutorial | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-75",
+          "url": "RmajweUFKvM",
+          "title": "Decision Tree In Machine Learning | Decision Tree Algorithm In Python |Machine Learning |Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-76",
+          "url": "eM4uJ6XGnSM",
+          "title": "Random Forest Algorithm - Random Forest Explained | Random Forest in Machine Learning | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-77",
+          "url": "4HKqjENq9OU",
+          "title": "KNN Algorithm In Machine Learning | KNN Algorithm Using Python | K Nearest Neighbor | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-78",
+          "url": "TtKF996oEl8",
+          "title": "Support Vector Machine - How Support Vector Machine Works | SVM In Machine Learning | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-79",
+          "url": "l3dZ6ZNFjo0",
+          "title": "Naive Bayes Classifier | Naive Bayes Algorithm | Naive Bayes Classifier With Example | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-80",
+          "url": "60pqgfT5tZM",
+          "title": "Text Classification Using Naive Bayes | Naive Bayes Algorithm In Machine Learning | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-81",
+          "url": "Xvwt7y2jf5E",
+          "title": "K Means Clustering Algorithm | K Means In Python | Machine Learning Algorithms |Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-82",
+          "url": "ryrIivu4dWA",
+          "title": "Machine Learning Projects | Machine Learning Applications | Machine Learning Training | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-83",
+          "url": "lXvPopmYJ5E",
+          "title": "Best Books For Machine Learning 2020 | These Books Will Help You Learn Machine Learning |Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-84",
+          "url": "SBFFarEfmEs",
+          "title": "How Does Netflix Work? | How Netflix Uses Machine Learning | Machine Learning Use Cases |Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-85",
+          "url": "-5hEYRt8JE0",
+          "title": "How to Become A Machine Learning Engineer | How To Learn Machine Learning | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-86",
+          "url": "41J0xQ6F2jk",
+          "title": "Machine Learning Engineer Salary, Roles And Responsibilities, Skills and Resume | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-87",
+          "url": "hB1CTizqGFk",
+          "title": "Machine Learning Interview Questions & Answers | Machine Learning Interview Preparation |Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-88",
+          "url": "YrJE9q1FYnM",
+          "title": "Top 10 Machine Learning Projects for 2023 | ML Projects for Resume | ML Project Ideas | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-89",
+          "url": "wMHhlZbsusY",
+          "title": "🔥Top 5 Reasons to Learn Machine Learning | Why You Should Learn Machine Learning | Simplilearn",
+          "watched": false
+        }
+      ]
+         
+    },
+
+
+    // ------------- Cyber Security -------------
+
+
+    {
+      id: 'cuberSecurity',
+      title: 'Cyber Security',
+      description: 'Cyber Security Series',
+      category: 'cyber-security', // Add category field
+      videos: [
+        {
+          "id": "video-1",
+          "url": "Hm35SS_PY5g",
+          "title": "Cyber Security Week Day - 1 | Cryptography Full Course | Cryptography & Network Security | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-2",
+          "url": "3OkXu3Wxnvg",
+          "title": "Cyber Security Week Day - 2 | Ethical Hacking Full Course | Ethical Hacker Course | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-3",
+          "url": "ThsdqPck-LA",
+          "title": "Cyber Security Week Day - 4 | Cyber Security Interview Questions And Answers 2021 | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-4",
+          "url": "Vez9dGiORG8",
+          "title": "OSI Model Explained | Open System Interconnection Model | Networking Tutorial | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-5",
+          "url": "43yYsui3xZc",
+          "title": "Cross Site Scripting Explained | What Is Cross Site Scripting Attack? | Web Attacks | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-6",
+          "url": "6DeZ-scCuT0",
+          "title": "Advanced Executive Program In Cybersecurity | Cyber Security Course | IIIT Bangalore | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-7",
+          "url": "nU0jdP0PbJg",
+          "title": "How To Know If Your Computer Is Hacked | How To Detect Computer Virus | Computer Hacks | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-8",
+          "url": "IVpwBHLA-Wg",
+          "title": "Ubuntu vs Debian 2022: Which One Should You Choose? | Ubuntu And Debian Difference | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-9",
+          "url": "CsektxtqA8c",
+          "title": "TCP/IP Protocol Explained | What Is TCP/IP Address? | TCP/IP Configuration Tutorial | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-10",
+          "url": "RxGI-l4VxL0",
+          "title": "SolarWinds Attack Explained | What Is SolarWinds Attack? | Cyber Security | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-11",
+          "url": "mgu4blmFF_w",
+          "title": "Subneting Explained | What Is Subneting? | How It Works? | Networking Tutorial | Simplilearn",
+          "watched": false
+        },
+        {
+          "id": "video-12",
+          "url": "j9-Y0KWVJ1k",
+          "title": "Proxy In 5 Minutes | What Is A Proxy? | What Is A Proxy Server? | Proxy Explained | Simplilearn",
+          "watched": false
+        }
+      ]      
+    },
+
 ];
   
   export default playlists;
