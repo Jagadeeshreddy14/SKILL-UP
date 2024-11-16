@@ -108,7 +108,7 @@ function ProfilePage() {
 
   return (
     <div className="container mx-auto px-4 py-6 max-w-2xl bg-white shadow-lg rounded-lg">
-      <ToastContainer />
+     
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-800">Your Profile</h1>
         <p className="text-gray-600">
