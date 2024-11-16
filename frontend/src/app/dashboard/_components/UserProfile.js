@@ -1,66 +1,102 @@
-import Image from 'next/image';
-import { FaMapMarkerAlt, FaUniversity, FaEnvelope, FaCode } from 'react-icons/fa';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { useUser } from "@clerk/clerk-react";
+import {
+  FaMapMarkerAlt,
+  FaUniversity,
+  FaEnvelope,
+  FaCode,
+  FaGithub,
+  FaEdit,
+  FaMedal,
+} from "react-icons/fa";
+import { SiLeetcode, SiCodeforces, SiCodechef } from "react-icons/si";
 
-export default function UserProfile({ profileData = {}, isEditing = false, onEdit }) {
+const InfoItem = ({ icon: Icon, text, className = "" }) => (
+  <div className={`flex items-center space-x-3 rounded-lg hover:bg-gray-50 transition-colors ${className}`}>
+    <Icon className="text-black w-5 h-5 flex-shrink-0" />
+    <span className="text-gray-800 text-sm">{text}</span>
+  </div>
+);
+
+export default function UserProfile({ profileData = {}, isEditing = false }) {
   const { user } = useUser();
-console.log("from profile dashboard" + profileData);
+
   return (
-    <div className="p-6 bg-white rounded-lg shadow-lg flex flex-col items-center space-y-4 text-center">
-      {/* Profile Image */}
-      {user?.imageUrl ? (
-        <div className="w-24 h-24 overflow-hidden rounded-full border-4 border-indigo-500 shadow-lg">
-          <Image
-            src={user?.imageUrl}
-            alt="User Profile"
-            width={96}
-            height={96}
-            className="object-cover"
-          />
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+        {/* Header Background with Image */}
+        <div className="h-40 sm:h-32 bg-gradient-to-r from-indigo-500 to-purple-600 relative flex items-center justify-center">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-white shadow-xl overflow-hidden absolute -bottom-12">
+            <Image
+              src={user.imageUrl}
+              alt="User Profile"
+              width={128}
+              height={128}
+              className="object-cover"
+            />
+          </div>
         </div>
-      ) : (
-        <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center text-gray-500">
-          No Image
+
+        {/* User Info */}
+        <div className="px-4 sm:px-6 pb-6 pt-16 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
+            {profileData.name || "Anonymous User"}
+          </h2>
+          <p className="text-sm text-gray-500 mt-1 break-all">
+            @{profileData.clerkId || "Unknown Clerk ID"}
+          </p>
+
+          {/* Main Info Section */}
+          <div className="mt-6 grid grid-cols-1 gap-3 text-left w-full max-w-md mx-auto">
+            <InfoItem
+              icon={FaMapMarkerAlt}
+              text={profileData.location || "Location not specified"}
+            />
+            <InfoItem
+              icon={FaUniversity}
+              text="Indian Institute of Information Technology (IIIT), Bhagalpur"
+            />
+            <InfoItem
+              icon={FaEnvelope}
+              text={profileData.primaryEmail || "No email provided"}
+            />
+          </div>
+
+          {/* Coding Profiles Section */}
+          <div className="mt-8 pt-6 border-t border-gray-100">
+            <h3 className="flex items-center justify-center text-base sm:text-lg font-semibold text-gray-900 mb-4">
+              <FaMedal className="text-indigo-500 mr-2" />
+              Coding Profiles
+            </h3>
+            <div className="grid grid-cols-1 gap-3 w-full max-w-md mx-auto text-left">
+              <InfoItem
+                icon={SiLeetcode}
+                text={profileData.leetCode || "LeetCode handle missing"}
+                className="hover:bg-yellow-50"
+              />
+              <InfoItem
+                icon={SiCodeforces}
+                text={profileData.codeforces || "Codeforces handle missing"}
+                className="hover:bg-blue-50"
+              />
+              <InfoItem
+                icon={SiCodechef}
+                text={profileData.codechef || "Codechef handle missing"}
+                className="hover:bg-orange-50"
+              />
+            </div>
+            <Link 
+              href="/profile"
+              className="mt-4 inline-flex items-center px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg transition-colors shadow-md text-sm"
+            >
+              <FaEdit className="mr-2" />
+              Edit Profile
+            </Link>
+          </div>
         </div>
-      )}
-
-      {/* User Info */}
-      <h2 className="text-2xl font-bold text-gray-900">
-        {profileData.name || "Anonymous User"}
-      </h2>
-      <p className="text-sm text-gray-500">
-        @{profileData.clerkId || "Unknown Clerk ID"}
-      </p>
-
-      {/* Additional Info */}
-      <div className="text-gray-600 space-y-2">
-        <p className="flex items-center justify-center space-x-2">
-          <FaMapMarkerAlt className="text-indigo-500" />
-          <span>{profileData.location || "Location not specified"}</span>
-        </p>
-        <p className="flex items-center justify-center space-x-2">
-          <FaUniversity className="text-indigo-500" />
-          <span>{profileData.university || "Institution not provided"}</span>
-        </p>
-        <p className="flex items-center justify-center space-x-2">
-          <FaEnvelope className="text-indigo-500" />
-          <span>{profileData.primaryEmail || "No email provided"}</span>
-        </p>
-        <p className="flex items-center justify-center space-x-2">
-          <FaCode className="text-indigo-500" />
-          <span>{profileData.leetCode || "LeetCode handle missing"}</span>
-        </p>
       </div>
-
-      {/* Optional Action Button */}
-      {isEditing && onEdit && (
-        <button
-          className="px-4 py-2 bg-indigo-500 text-white rounded-md hover:bg-indigo-600 transition-colors"
-          onClick={onEdit}
-        >
-          Edit Profile
-        </button>
-      )}
     </div>
   );
 }
