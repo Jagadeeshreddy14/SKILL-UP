@@ -17,7 +17,7 @@ export default function Home() {
           <Section image="/cp.png" title="Competitive Programming" path="/courses/pages/cp" />
           <Section image="/blockchain.png" title="Blockchain" path="/courses/pages/blockchain" />
           <Section image="/cybersecurity.jpg" title="CyberSecurity" path="/courses/pages/cyber-security" />
-          <Section image="/interview.jpg" title="Interview Preparation" path="/https://mockmateai-eta.vercel.app/sign-in?redirect_url=https%3A%2F%2Fmockmateai-eta.vercel.app%2Fdashboard" />
+          <Section image="/interview.jpg" title="Interview Preparation" path="https://mockmateai-eta.vercel.app/sign-in?redirect_url=https%3A%2F%2Fmockmateai-eta.vercel.app%2Fdashboard" />
         </div>
       </div>
     </div>
