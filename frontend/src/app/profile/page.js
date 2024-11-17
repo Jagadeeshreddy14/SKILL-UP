@@ -284,7 +284,7 @@ function ProfilePage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-8 mt-6">
       <div className="container mx-auto px-4 max-w-2xl">
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           {renderProfileHeader()}

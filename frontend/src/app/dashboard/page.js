@@ -72,7 +72,7 @@ export default function Dashboard() {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto p-6 space-y-6">
+      <div className="container mx-auto p-6 space-y-6 m-1 mt-5">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-1">
             <Skeleton className="h-[600px] w-full rounded-xl" />
@@ -95,7 +95,7 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50/50">
+    <div className="min-h-screen bg-gray-50/50 mt-16">
       <div className="container mx-auto ">
         {isNew && (
           <Alert className="mb-1 bg-blue-50 text-blue-700 border-blue-200">
