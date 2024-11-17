@@ -48,6 +48,13 @@ const Header = () => {
     <span className="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#2563EB] transition-all group-hover:w-full"></span>
   </Link>
   <Link 
+    href="/aboutUs" 
+    className="group text-gray-700 hover:text-blue-600 transition-colors font-medium relative"
+  >
+    About Us
+    <span className="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#2563EB] transition-all group-hover:w-full"></span>
+  </Link>
+  <Link 
     href="/profile" 
     className="group text-gray-700 hover:text-blue-600 transition-colors font-medium relative"
   >
