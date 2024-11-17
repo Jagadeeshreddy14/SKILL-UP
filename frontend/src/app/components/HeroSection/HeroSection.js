@@ -1,6 +1,6 @@
-'use client';
+"use client";
 import React from 'react';
-import { ArrowRight,GraduationCap } from 'lucide-react';
+import { ArrowRight, GraduationCap } from 'lucide-react';
 
 const HeroSection = () => {
   return (
@@ -16,14 +16,15 @@ const HeroSection = () => {
             className="flex-1 text-center md:text-left space-y-6"
             data-aos="fade-right"
           >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight flex items-center space-x-3">
-  <span>Welcome to</span>
-  <span className="flex items-center space-x-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-    <GraduationCap className="h-12 w-12 text-gray-600" />
-    <span>SkillUp</span>
-  </span>
-</h1>
-
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <span className="block md:inline">Welcome to</span>
+              <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start mt-2 md:mt-0 md:ml-3 space-y-2 sm:space-y-0 sm:space-x-2">
+                <GraduationCap className="h-8 w-8 md:h-12 md:w-12 text-gray-600" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                  SkillUp
+                </span>
+              </div>
+            </h1>
             
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl">
               Your ultimate platform for learning and skill development. Transform your career with cutting-edge courses and expert guidance.
@@ -31,8 +32,8 @@ const HeroSection = () => {
             
             {/* CTA Button */}
             <div className="pt-4">
-              <a 
-                href="#study-paths"
+              
+                <a href="#study-paths"
                 className="inline-flex items-center px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-200 group"
               >
                 View Paths
@@ -54,8 +55,8 @@ const HeroSection = () => {
               
               {/* Main Image */}
               <div className="relative">
-                <img 
-                  src="/hero-image.svg" 
+                <img
+                  src="/hero-image.svg"
                   alt="Hero Image"
                   className="relative z-10 w-full h-auto transform hover:scale-105 transition-transform duration-300"
                 />
