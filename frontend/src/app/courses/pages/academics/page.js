@@ -6,7 +6,7 @@ export default function AcademicsPage() {
   const [branch, setBranch] = useState("");
   const [semester, setSemester] = useState("");
 
-  const branches = ["CSE", "ECE", "MAE", "MNC"];
+  const branches = ["CSE", "ECE", "MAE"];
   const semesters = [
     "Semester I",
     "Semester II",
@@ -16,6 +16,57 @@ export default function AcademicsPage() {
     "Semester VI",
     "Semester VII",
   ];
+
+  const syllabusLinks = {
+    CSE: {
+      "Semester I":
+        "https://iiitbh.ac.in/sites/default/files/html-page/CSE/1st%20Semester.pdf",
+      "Semester II":
+        "https://iiitbh.ac.in/sites/default/files/html-page/CSE/2nd%20Semester.pdf",
+      "Semester III":
+        "https://iiitbh.ac.in/sites/default/files/html-page/CSE/3rd%20Semester.pdf",
+      "Semester IV":
+        "https://iiitbh.ac.in/sites/default/files/html-page/CSE/4th%20Semester.pdf",
+      "Semester V":
+        "https://iiitbh.ac.in/sites/default/files/html-page/CSE/5th%20Semester.pdf",
+      "Semester VI":
+        "https://iiitbh.ac.in/sites/default/files/html-page/CSE/6th%20Semester.pdf",
+      "Semester VII":
+        "https://iiitbh.ac.in/sites/default/files/html-page/CSE/7th%20Semester.pdf",
+    },
+    ECE: {
+      "Semester I":
+        "https://iiitbh.ac.in/sites/default/files/html-page/ECE/1st%20Semester.pdf",
+      "Semester II":
+        "https://iiitbh.ac.in/sites/default/files/html-page/ECE/2nd%20Semester.pdf",
+      "Semester III":
+        "https://iiitbh.ac.in/sites/default/files/html-page/ECE/3rd%20Semester.pdf",
+      "Semester IV":
+        "https://iiitbh.ac.in/sites/default/files/html-page/ECE/4th%20Semester.pdf",
+      "Semester V":
+        "https://iiitbh.ac.in/sites/default/files/html-page/ECE/5th%20Semester.pdf",
+      "Semester VI":
+        "https://iiitbh.ac.in/sites/default/files/html-page/ECE/6th%20Semester.pdf",
+      "Semester VII":
+        "https://iiitbh.ac.in/sites/default/files/html-page/ECE/7th%20Semester.pdf",
+    },
+    MAE: {
+      "Semester I":
+        "https://iiitbh.ac.in/sites/default/files/html-page/MEA/Sem_1.pdf",
+      "Semester II":
+        "https://iiitbh.ac.in/sites/default/files/html-page/MEA/Sem_2.pdf",
+      "Semester III":
+        "https://iiitbh.ac.in/sites/default/files/html-page/MEA/Sem_3.pdf",
+      "Semester IV":
+        "https://iiitbh.ac.in/sites/default/files/html-page/MEA/Sem_4.pdf",
+      "Semester V":
+        "https://iiitbh.ac.in/sites/default/files/html-page/MEA/Sem_5.pdf",
+      "Semester VI":
+        "https://iiitbh.ac.in/sites/default/files/html-page/MEA/Sem_6.pdf",
+      "Semester VII":
+        "https://iiitbh.ac.in/sites/default/files/html-page/MEA/Sem_7.pdf",
+    },
+  };
 
   const getSubjects = (branch, semester) => {
     const subjects = {
@@ -564,13 +615,18 @@ export default function AcademicsPage() {
     return subjects[branch]?.[semester] || [];
   };
 
+  const getSyllabusLink = (branch, semester) => {
+    return syllabusLinks[branch]?.[semester] || "#";
+  };
+
   return (
     <div className="p-6 bg-white max-w-3xl mx-auto rounded-lg shadow-md">
       <h1 className="text-3xl font-bold text-center mb-6 text-gray-900">
         College Academics
       </h1>
       <p className="text-lg text-center text-gray-600 mb-6">
-        Select your branch and semester to view available subjects and books.
+        Select your branch and semester to view available subjects, books, and
+        syllabus.
       </p>
 
       <label
@@ -619,9 +675,22 @@ export default function AcademicsPage() {
 
       {branch && semester && (
         <div className="mt-6">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            Subjects for {branch} - {semester}
-          </h2>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-semibold text-gray-900">
+              {branch} - {semester}
+            </h2>
+            <a
+              href={getSyllabusLink(branch, semester)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              View Syllabus
+            </a>
+          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            Subject Book Links
+          </h3>
           <ul className="list-none p-0">
             {getSubjects(branch, semester).map((subject, index) => (
               <li key={index} className="mb-3">
