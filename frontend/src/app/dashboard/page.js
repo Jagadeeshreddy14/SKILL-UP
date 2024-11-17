@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import UserProfile from "./_components/UserProfile";
 import Statistics from "./_components/Statistics";
+import TotalStatsCard from "./_components/TotalStatsCard";
+import { useUser } from "@clerk/clerk-react";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Skeleton from "react-loading-skeleton";
-import { useUser } from "@clerk/clerk-react";
-import TotalStatsCard from "./_components/TotalStatsCard";
 
 export default function Dashboard() {
   const { user } = useUser();
@@ -70,14 +72,14 @@ export default function Dashboard() {
 
   if (isLoading) {
     return (
-      <div className="container mx-auto px-4 py-6 space-y-6">
+      <div className="container mx-auto p-6 space-y-6">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-1">
-            <Skeleton height={400} className="rounded-lg" />
+            <Skeleton className="h-[600px] w-full rounded-xl" />
           </div>
           <div className="lg:col-span-2 space-y-6">
-            <Skeleton height={200} className="rounded-lg" />
-            <Skeleton height={400} className="rounded-lg" />
+            <Skeleton className="h-[200px] w-full rounded-xl" />
+            <Skeleton className="h-[400px] w-full rounded-xl" />
           </div>
         </div>
       </div>
@@ -85,47 +87,61 @@ export default function Dashboard() {
   }
 
   const NoDataCard = ({ message }) => (
-    <div className="p-6 bg-gray-50 rounded-lg text-gray-500 flex items-center justify-center min-h-[200px] border border-gray-100">
-      <p className="text-center text-lg">{message}</p>
-    </div>
+    <Card className="bg-gray-50">
+      <CardContent className="flex items-center justify-center min-h-[200px]">
+        <p className="text-lg text-gray-500">{message}</p>
+      </CardContent>
+    </Card>
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-2">
+    <div className="min-h-screen bg-gray-50/50">
+      <div className="container mx-auto ">
         {isNew && (
-          <div className="mb-6 p-4 bg-blue-50 text-blue-700 rounded-lg shadow-sm">
-            Welcome! Please complete your profile to get started.
-          </div>
+          <Alert className="mb-1 bg-blue-50 text-blue-700 border-blue-200">
+            <AlertDescription>
+              Welcome! Please complete your profile to get started.
+            </AlertDescription>
+          </Alert>
         )}
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-1">
           {/* Profile Section */}
-          <div className="lg:col-span-1 lg:sticky lg:top-6 lg:self-start">
-            {profileData ? (
-              <UserProfile profileData={profileData} isEditing={true} />
-            ) : (
-              <NoDataCard message="No profile data available" />
-            )}
+          <div className="lg:col-span-1">
+            <div className="lg:sticky lg:top-6">
+              {profileData ? (
+                <Card className="shadow-sm hover:shadow-md transition-all duration-200">
+                  <CardContent className="p-0">
+                    <UserProfile profileData={profileData} isEditing={true} />
+                  </CardContent>
+                </Card>
+              ) : (
+                <NoDataCard message="No profile data available" />
+              )}
+            </div>
           </div>
 
           {/* Stats Section */}
-          <div className="lg:col-span-2 space-y-2">
-            <div className="bg-white rounded-xl shadow-sm p-3 transition-all hover:shadow-md">
-              {userData ? (
-                <TotalStatsCard stats={userData} />
-              ) : (
-                <NoDataCard message="No platform stats available" />
-              )}
-            </div>
+          <div className="lg:col-span-2 space-y-6">
+            <Card className="shadow-sm hover:shadow-md transition-all duration-200">
+              <CardContent className="p-1">
+                {userData ? (
+                  <TotalStatsCard stats={userData} />
+                ) : (
+                  <NoDataCard message="No platform stats available" />
+                )}
+              </CardContent>
+            </Card>
 
-            <div className="bg-white rounded-xl shadow-sm p-1 transition-all hover:shadow-md">
-              {userData ? (
-                <Statistics stats={userData} />
-              ) : (
-                <NoDataCard message="No platform stats available" />
-              )}
-            </div>
+            <Card className="shadow-sm hover:shadow-md transition-all duration-200">
+              <CardContent className="p-1">
+                {userData ? (
+                  <Statistics stats={userData} />
+                ) : (
+                  <NoDataCard message="No platform stats available" />
+                )}
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
