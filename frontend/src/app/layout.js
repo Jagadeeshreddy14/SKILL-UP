@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
     <html lang="en">
-      <title>skillUp</title>
+      <title>skillUp : IIIT Bhagalpur</title>
       <body>
         <Header  />
         <ToastContainer />
