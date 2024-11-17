@@ -30,56 +30,60 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
-  href="/"
-  className="flex items-center space-x-2 text-2xl font-bold "
->
-  <GraduationCap className="h-10 w-10 text-zinc-600" />
-  <span className="bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-80 transition-opacity">SkillUp</span>
-</Link>
+            href="/"
+            className="flex items-center space-x-2 text-2xl font-bold "
+          >
+            <GraduationCap className="h-10 w-10 text-zinc-600" />
+            <span className="bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-80 transition-opacity">SkillUp</span>
+          </Link>
 
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/" 
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Home
-            </Link>
-            <Link 
-              href="/profile" 
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Student Profile
-            </Link>
-            <Link 
-              href="/dashboard" 
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Dashboard
-            </Link>
-            
-            {/* Auth Buttons */}
-            <div className="ml-4">
-              <SignedOut>
-                <SignInButton mode="modal">
-                  <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                    Sign In
-                  </button>
-                </SignInButton>
-              </SignedOut>
-              <SignedIn>
-                <UserButton 
-                  afterSignOutUrl="/"
-                  appearance={{
-                    elements: {
-                      avatarBox: "w-10 h-10 rounded-full hover:opacity-80 transition-opacity"
-                    }
-                  }}
-                />
-              </SignedIn>
-            </div>
-          </nav>
+<nav className="hidden md:flex items-center space-x-8">
+  <Link 
+    href="/" 
+    className="group text-gray-700 hover:text-blue-600 transition-colors font-medium relative"
+  >
+    Home
+    <span className="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#2563EB] transition-all group-hover:w-full"></span>
+  </Link>
+  <Link 
+    href="/profile" 
+    className="group text-gray-700 hover:text-blue-600 transition-colors font-medium relative"
+  >
+    Student Profile
+    <span className="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#2563EB] transition-all group-hover:w-full"></span>
+  </Link>
+  <Link 
+    href="/dashboard" 
+    className="group text-gray-700 hover:text-blue-600 transition-colors font-medium relative"
+  >
+    Dashboard
+    <span className="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#2563EB] transition-all group-hover:w-full"></span>
+  </Link>
+
+  {/* Auth Buttons */}
+  <div className="ml-4">
+    <SignedOut>
+      <SignInButton mode="modal">
+        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+          Sign In
+        </button>
+      </SignInButton>
+    </SignedOut>
+    <SignedIn>
+      <UserButton 
+        afterSignOutUrl="/"
+        appearance={{
+          elements: {
+            avatarBox: "w-10 h-10 rounded-full hover:opacity-80 transition-opacity"
+          }
+        }}
+      />
+    </SignedIn>
+  </div>
+</nav>
+
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
