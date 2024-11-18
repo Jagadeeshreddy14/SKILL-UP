@@ -26,7 +26,11 @@ export default async function handler(req, res) {
         ...(leetCodeStats.easyCount !== undefined && { easyCount: leetCodeStats.easyCount || 0 }),
         ...(leetCodeStats.mediumCount !== undefined && { mediumCount: leetCodeStats.mediumCount || 0 }),
         ...(leetCodeStats.hardCount !== undefined && { hardCount: leetCodeStats.hardCount || 0 }),
-        lastUpdated: new Date().toISOString(),
+        ...(leetCodeStats.totalquestions !== undefined && { totalquestions: leetCodeStats.totalquestions || 0 }),
+        ...(leetCodeStats.totaleasy !== undefined && {  easyquestions: leetCodeStats.totaleasy || 0 }),
+        ...(leetCodeStats.totalmedium !== undefined && { mediumquestions: leetCodeStats.totalmedium || 0 }),
+        ...(leetCodeStats.totalhard !== undefined && { hardquestions: leetCodeStats.totalhard || 0 }),
+        lastUpdated: leetCodeStats.lastUpdated,
       };
 
       console.log("Data to insert or update:", dataToInsertOrUpdate);

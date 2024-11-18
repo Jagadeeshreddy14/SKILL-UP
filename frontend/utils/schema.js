@@ -32,4 +32,9 @@ export const CodingPlatformStats = pgTable('CodingPlatformStats', {
   easyCount: varchar('easyCount').default(0),
   mediumCount: varchar('mediumCount').default(0),
   hardCount:varchar('hardCount').default(0),
+  totalquestions: varchar('totalquestions').default(0),
+  easyquestions: varchar('easyquestions').default(0),
+  mediumquestions: varchar('mediumquestions').default(0),
+  hardquestions: varchar('hardquestions').default(0),
+  
 });

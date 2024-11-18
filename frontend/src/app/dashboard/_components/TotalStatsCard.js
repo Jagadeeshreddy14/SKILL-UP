@@ -19,20 +19,23 @@ const TotalStatsCard = ({ stats }) => {
   const totalStats = statsArray.reduce(
     (acc, platform) => {
       acc.totalSolved += parseInt(platform.solvedCount || 0, 10);
+      acc.totalQuestions += parseInt(platform.totalquestions || 0, 10);
       acc.easyCount += parseInt(platform.easyCount || 0, 10);
       acc.mediumCount += parseInt(platform.mediumCount || 0, 10);
       acc.hardCount += parseInt(platform.hardCount || 0, 10);
       return acc;
     },
-    { totalSolved: 0, easyCount: 0, mediumCount: 0, hardCount: 0 }
+    { totalSolved: 0, totalQuestions: 0, easyCount: 0, mediumCount: 0, hardCount: 0 }
   );
 
   const calculateProgress = () => {
-    const totalAvailable =
-      totalStats.easyCount + totalStats.mediumCount + totalStats.hardCount;
-    const solvedProblems = totalStats.totalSolved;
-    return totalAvailable > 0 ? (solvedProblems / totalAvailable) * 100 : 0;
+    return totalStats.totalQuestions > 0 
+      ? (totalStats.totalSolved / totalStats.totalQuestions) * 100 
+      : 0;
   };
+
+  // Ensure progress value is bounded between 0 and 100
+  const progressValue = Math.min(100, Math.max(0, calculateProgress()));
 
   return (
     <div className="max-w-3xl p-6 rounded-xl bg-gradient-to-br from-indigo-700 via-purple-700 to-purple-900 text-white shadow-xl">
@@ -47,20 +50,36 @@ const TotalStatsCard = ({ stats }) => {
         </div>
       </div>
 
-      {/* Progress Bar */}
-      <div className="mb-6">
-        <div className="h-2 w-full bg-white/20 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gradient-to-r from-green-400 to-emerald-500 transition-all duration-1000 ease-in-out"
-            style={{ width: `${calculateProgress()}%` }}
-          ></div>
+      {/* Progress Section */}
+      <div className="mb-8">
+        {/* Progress Text */}
+        <div className="flex justify-between items-center mb-2">
+          <span className="text-sm font-medium text-white/70">Overall Progress</span>
+          <span className="text-sm font-medium text-white">
+            {progressValue.toFixed(1)}%
+          </span>
         </div>
-        <p className="text-xs text-white/70 mt-2">
-          Completion: {calculateProgress().toFixed(1)}%
-        </p>
+        
+        {/* Progress Bar Container */}
+        <div className="relative">
+          {/* Background Bar */}
+          <div className="h-3 w-full bg-white/10 rounded-full">
+            {/* Filled Bar */}
+            <div 
+              className="absolute top-0 left-0 h-3 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 transition-all duration-1000 ease-out"
+              style={{ width: `${progressValue}%` }}
+            />
+          </div>
+          
+          {/* Progress Details */}
+          <div className="mt-2 flex justify-between text-xs text-white/70">
+            <span>{totalStats.totalSolved.toLocaleString()} solved</span>
+            <span>out of {totalStats.totalQuestions.toLocaleString()} total</span>
+          </div>
+        </div>
       </div>
 
-      {/* Stats */}
+      {/* Stats Grid */}
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <StatItem
           icon={Trophy}
