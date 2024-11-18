@@ -1,18 +1,31 @@
-"use client"
-// components/ChatbotIcon/ChatbotIcon.js
-import React from 'react';
-import styles from './ChatbotIcon.module.css';
+// app/components/ChatbotIcon/ChatbotIcon.js
+"use client";
+import React, { useState } from 'react';
+import { Bot } from 'lucide-react';
+import ChatbotModal from './ChatbotModal';
 
 const ChatbotIcon = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleChatbotClick = () => {
-    // Logic to open the chatbot modal or redirect to the chatbot page
-    alert('Chatbot clicked!'); // Replace with actual chatbot opening logic
+    setIsModalOpen(true);
   };
 
   return (
-    <div className={styles.chatbotIcon} onClick={handleChatbotClick}>
-        <img src="/chatbot-icon.png" alt="Chatbot Icon" />
-    </div>
+    <>
+      <div 
+        className="fixed bottom-8 right-8 w-16 h-16 cursor-pointer transition-transform hover:scale-110 z-50"
+        onClick={handleChatbotClick}
+      >
+        <div className="w-full h-full rounded-full bg-blue-600 flex items-center justify-center shadow-lg">
+          <Bot className="h-8 w-8 text-white" />
+        </div>
+      </div>
+      <ChatbotModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+    </>
   );
 };
 

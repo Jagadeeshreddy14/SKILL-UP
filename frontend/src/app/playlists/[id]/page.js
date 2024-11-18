@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import playlists from '@/data/playlists';
 import { AiFillPlayCircle } from 'react-icons/ai'; // Importing an icon for a modern look
+import ChatbotIcon from '@/app/components/ChatbotIcon/ChatbotIcon';
 
 function PlaylistPage() {
   const { id } = useParams(); // Use useParams to get the playlist ID
@@ -117,6 +118,7 @@ function PlaylistPage() {
           ))}
         </div>
       </div>
+      <ChatbotIcon />
     </div>
   );
 }

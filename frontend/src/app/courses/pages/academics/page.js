@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ChatbotIcon from "@/app/components/ChatbotIcon/ChatbotIcon";
 
 export default function AcademicsPage() {
   const [branch, setBranch] = useState("");
@@ -707,6 +708,8 @@ export default function AcademicsPage() {
           </ul>
         </div>
       )}
+      <ChatbotIcon />
     </div>
+
   );
 }

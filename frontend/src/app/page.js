@@ -8,7 +8,7 @@ export default function Home() {
     <div className={styles.home}>
       <HeroSection />
       <div id='study-paths'>
-        <h2>Study Paths</h2>
+        <h2 className='mt-2'>Study Paths</h2>
         <p>Choose a path that suits your interests and goals</p>
         <div className={styles.sections}>
           <Section image="/college.png" title="College Academics" path="/courses/pages/academics" />
