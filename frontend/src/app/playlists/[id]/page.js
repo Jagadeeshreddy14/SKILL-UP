@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import playlists from '@/data/playlists';
+import { AiFillPlayCircle } from 'react-icons/ai'; // Importing an icon for a modern look
 
 function PlaylistPage() {
   const { id } = useParams(); // Use useParams to get the playlist ID
@@ -14,7 +15,7 @@ function PlaylistPage() {
 
   // If playlist not found, show an error message
   if (!playlist) {
-    return <p>Playlist not found.</p>;
+    return <p className="text-center text-red-500 font-bold">Playlist not found.</p>;
   }
 
   const selectedVideo = playlist.videos[selectedVideoIndex];
@@ -31,8 +32,6 @@ function PlaylistPage() {
             videoId: selectedVideo.url,
             events: {
               onReady: () => {
-                console.log('Player is ready');
-                console.log(newPlayer); // Log the player to check its methods
                 if (newPlayer) {
                   newPlayer.seekTo(videoProgress); // Seek to the saved progress
                   newPlayer.playVideo(); // Play the video once it's ready
@@ -77,45 +76,43 @@ function PlaylistPage() {
     if (player) {
       // When selectedVideo or player changes, load the new video
       if (typeof player.loadVideoById === 'function') {
-        console.log("Loading video with ID:", selectedVideo.url);
         player.loadVideoById(selectedVideo.url); // Load the video by its ID
         player.seekTo(videoProgress); // Seek to the saved progress
         player.playVideo(); // Play the newly selected video
-      } else {
-        console.error('loadVideoById is not a function on the player object');
       }
     }
   }, [selectedVideo, player, videoProgress]);
 
   return (
-    <div className="container mx-auto px-4 py-6">
-      <h1 className="text-3xl font-bold mb-6">{playlist.title}</h1>
-
-      <div className="flex flex-col md:flex-row gap-8">
+    <div className="container mx-auto px-10 py-6 mt-16">
+      <h1 className="text-4xl font-bold mb-3 px-5 text-[#334155]">
+        {playlist.title}
+      </h1>
+      <div className="flex flex-col md:flex-row gap-10">
         {/* Left Side - Selected Video */}
-        <div className="flex-1">
-          <div
-            id="youtube-player"
-            className="w-full"
-            style={{ height: '400px' }}
-          ></div>
-          <p className="mt-4 text-center font-semibold">
+        <div className="flex-1 shadow-lg overflow-hidden border border-gray-200 rounded-lg">
+          <div id="youtube-player" className="w-full bg-black" style={{ height: '450px' }}></div>
+          <p className="mt-4 mb-2 text-center font-semibold text-lg text-gray-700">
             Lecture {selectedVideoIndex + 1}: {selectedVideo.title}
           </p>
         </div>
 
         {/* Right Side - Video List */}
-        <div className="w-full md:w-1/3 lg:w-1/4 overflow-y-auto max-h-[500px] border-l border-gray-300">
+        <div className="w-full md:w-1/3 lg:w-1/4 overflow-y-auto max-h-[500px] border-l border-gray-300 rounded-md shadow-lg">
+          <h2 className="text-2xl font-bold p-4 bg-gray-100 text-gray-700">Playlist</h2>
           {playlist.videos.map((video, index) => (
             <div
               key={index}
-              className={`p-4 cursor-pointer ${index === selectedVideoIndex ? 'bg-gray-200' : ''}`}
+              className={`flex items-center p-4 cursor-pointer transition-all duration-200 hover:bg-gray-200 ${
+                index === selectedVideoIndex ? 'bg-gray-300' : ''
+              }`}
               onClick={() => {
                 setSelectedVideoIndex(index);
                 setVideoProgress(0); // Reset progress when a new video is clicked
               }}
             >
-              <p className="font-medium">Lecture {index + 1}: {video.title}</p>
+              <AiFillPlayCircle size={24} className="text-blue-500 mr-3" />
+              <p className="font-medium text-gray-800">Lecture {index + 1}: {video.title}</p>
             </div>
           ))}
         </div>
@@ -125,3 +122,4 @@ function PlaylistPage() {
 }
 
 export default PlaylistPage;
+
