@@ -1,107 +1,234 @@
-import React from 'react';
-import { BookOpen, Users, Target, Award } from 'lucide-react';
+"use client";
+
+import React, { useRef, useEffect, useState } from "react";
+import {
+  Instagram,
+  Linkedin,
+  Github,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 function AboutUs() {
-  const stats = [
-    { label: 'Active Students', value: '500+', icon: Users },
-    { label: 'Courses', value: '50+', icon: BookOpen },
-    { label: 'Success Rate', value: '95%', icon: Target },
-    { label: 'Expert Mentors', value: '20+', icon: Award },
+  const scrollContainerRef = useRef(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const autoScrollIntervalRef = useRef(null);
+
+  const developers = [
+    {
+      name: "Ashutosh Singh",
+      role: "Frontend Developer",
+      image: "/images/ashu.jpg",
+      social: {
+        instagram: "https://www.instagram.com/ashutosh820singh/",
+        linkedin: "https://www.linkedin.com/in/ashutosh-singh-27ba2b259/",
+        github: "https://github.com/19ashutoshsingh",
+      },
+    },
+    {
+      name: "Himanshu Kumar",
+      role: "Full Stack Developer",
+      image: "/images/him.jpg",
+      social: {
+        instagram: "https://www.instagram.com/_himanshuk__/",
+        linkedin: "https://www.linkedin.com/in/himanshu-kumar---/",
+        github: "https://github.com/Himanshukumar56",
+      },
+    },
+    {
+      name: "Sahil Morwal",
+      role: "Backend Developer",
+      image: "/images/sahilmc.jpg",
+      social: {
+        instagram: "https://www.instagram.com/sahil_morwal11/",
+        linkedin: "https://www.linkedin.com/in/sahil-morwal-20a456257/",
+        github: "https://github.com/SahilMorwal",
+      },
+    },
+    {
+      name: "Aman Kumar Bind",
+      role: "Frontend Developer",
+      image: "/images/aman.jpg",
+      social: {
+        instagram: "https://www.instagram.com/aman.bind0909/",
+        linkedin: "https://www.linkedin.com/in/aman-bind-306152289/",
+        github: "https://github.com/amanbind898",
+      },
+    },
+    {
+      name: "Ankit Kumar Patel",
+      role: "UI/UX Developer",
+      image: "/images/ankit.jpg",
+      social: {
+        instagram: "https://www.instagram.com/ankit_patel_1006/",
+        linkedin: "https://www.linkedin.com/in/ankit-kumar-patel-b51489259/",
+        github: "https://github.com/ak2patel",
+      },
+    },
   ];
 
-  const values = [
-    {
-      title: 'Quality Education',
-      description: 'We are committed to providing high-quality, up-to-date content that aligns with industry standards and academic requirements.'
-    },
-    {
-      title: 'Student Success',
-      description: 'Our primary focus is on student achievement, providing personalized support and guidance throughout their learning journey.'
-    },
-    {
-      title: 'Innovation',
-      description: 'We continuously evolve our platform and content to incorporate the latest technologies and teaching methodologies.'
-    },
-    {
-      title: 'Community',
-      description: 'We foster a collaborative learning environment where students can connect, share knowledge, and grow together.'
+  // Add duplicates to create an infinite scrolling effect
+  const extendedDevelopers = [...developers, ...developers];
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+
+    const startAutoScroll = () => {
+      if (container && isAutoScrolling) {
+        autoScrollIntervalRef.current = setInterval(() => {
+          container.scrollBy({ left: 2, behavior: "smooth" });
+
+          // Reset position seamlessly when reaching the end
+          if (container.scrollLeft >= container.scrollWidth / 2) {
+            container.scrollTo({ left: 0, behavior: "instant" });
+          }
+        }, 16); // Adjust speed by changing interval time
+      }
+    };
+
+    const stopAutoScroll = () => {
+      if (autoScrollIntervalRef.current) {
+        clearInterval(autoScrollIntervalRef.current);
+      }
+    };
+
+    if (isAutoScrolling) {
+      startAutoScroll();
     }
-  ];
+
+    return () => stopAutoScroll();
+  }, [isAutoScrolling]);
+
+  // Stop auto-scroll when user interacts
+  const handleInteraction = () => {
+    setIsAutoScrolling(false);
+  };
+
+  // Manual scrolling with buttons
+  const scroll = (direction) => {
+    setIsAutoScrolling(false); // Stop auto-scroll on manual action
+    const container = scrollContainerRef.current;
+    const scrollAmount = container.clientWidth / 2; // Scroll by half the visible width
+    container.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
       {/* Hero Section */}
       <div className="pt-24 pb-16 px-6 md:px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
             About <span className="text-blue-600">SkillUp</span>
           </h1>
-          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
-            SkillUp is IIIT Bhagalpur's premier learning platform, dedicated to empowering students 
-            with the skills and knowledge they need to excel in their academic and professional journeys.
-          </p>
-        </div>
-      </div>
-
-      {/* Stats Section */}
-      <div className="py-12 px-6 md:px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((stat, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition-shadow duration-300"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <stat.icon className="w-8 h-8 text-blue-600 mx-auto mb-4" />
-              <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mission Section */}
-      <div className="py-16 px-6 md:px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Mission</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              To provide accessible, high-quality education that prepares students for success in their chosen fields,
-              through innovative learning approaches and comprehensive support systems.
+          <div className="text-lg text-gray-600 space-y-6 max-w-4xl mx-auto">
+            <p>
+              SkillUp is IIIT Bhagalpur's premier learning platform, dedicated
+              to empowering students with the skills and knowledge they need to
+              excel in their academic and professional journeys.
             </p>
-          </div>
-
-          {/* Values Grid */}
-          <div className="grid md:grid-cols-2 gap-8 mt-12">
-            {values.map((value, index) => (
-              <div 
-                key={index}
-                className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </div>
-            ))}
+            <p>
+              Founded with the vision of bridging the gap between academic
+              learning and industry requirements, SkillUp provides comprehensive
+              courses, hands-on projects, and personalized mentoring to ensure
+              our students are well-prepared for their future careers.
+            </p>
+            <p>
+              Our platform combines cutting-edge technology with expert
+              instruction to deliver an unparalleled learning experience. We
+              focus on practical skills, industry-relevant projects, and
+              real-world applications to ensure our students are job-ready upon
+              completion of their courses.
+            </p>
+            {/* <p>
+              Additionally, SkillUp promotes collaborative learning by offering
+              team projects, peer-to-peer interactions, and dynamic study paths,
+              enabling students to explore their potential to the fullest.
+            </p> */}
           </div>
         </div>
       </div>
 
-      {/* Contact Section */}
-      <div className="py-16 px-6 md:px-12 lg:px-24 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-          </p>
-          <a 
-            href="mailto:support@skillup.iiitbh.ac.in"
-            className="inline-flex items-center px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-200"
-          >
-            Contact Us
-          </a>
+      {/* Developers Section */}
+      <div className="py-14 px-6 md:px-12 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">
+            Meet Our <span className="text-blue-600">Developers</span>
+          </h2>
+
+          {/* Scrollable Container */}
+          <div className="relative">
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100"
+            >
+              <ChevronLeft className="w-6 h-6 text-gray-600" />
+            </button>
+
+            <div
+              ref={scrollContainerRef}
+              className="flex overflow-x-auto gap-6 pb-6 scrollbar-hide scroll-smooth"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              onClick={handleInteraction}
+              onTouchStart={handleInteraction}
+              onMouseEnter={handleInteraction}
+            >
+              {extendedDevelopers.map((developer, index) => (
+                <div
+                  key={`${developer.name}-${index}`}
+                  className="flex-none w-72 bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="text-center">
+                    <img
+                      src={developer.image}
+                      alt={developer.name}
+                      className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                    />
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {developer.name}
+                    </h3>
+                    <p className="text-gray-600 mb-4">{developer.role}</p>
+                    <div className="flex justify-center space-x-4">
+                      <a
+                        href={developer.social.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-pink-600 hover:text-pink-700"
+                      >
+                        <Instagram className="w-5 h-5" />
+                      </a>
+                      <a
+                        href={developer.social.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-700"
+                      >
+                        <Linkedin className="w-5 h-5" />
+                      </a>
+                      <a
+                        href={developer.social.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-800 hover:text-gray-900"
+                      >
+                        <Github className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100"
+            >
+              <ChevronRight className="w-6 h-6 text-gray-600" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -109,3 +236,5 @@ function AboutUs() {
 }
 
 export default AboutUs;
+//update 1
+//newly forked
