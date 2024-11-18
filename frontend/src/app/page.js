@@ -1,5 +1,6 @@
 import Section from './components/Section/Section';  // Import Section component
 import HeroSection from './components/HeroSection/HeroSection';  // Import HeroSection component
+import ChatbotIcon from './components/ChatbotIcon/ChatbotIcon';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
           <Section image="/interview.jpg" title="Interview Preparation" path="https://mockmateai-eta.vercel.app/sign-in?redirect_url=https%3A%2F%2Fmockmateai-eta.vercel.app%2Fdashboard" />
         </div>
       </div>
+      <ChatbotIcon />
     </div>
   );
 }
