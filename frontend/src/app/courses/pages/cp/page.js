@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import initialPlaylists from '@/data/playlists';
 import { CSSTransition } from 'react-transition-group';
+import ChatbotIcon from '@/app/components/ChatbotIcon/ChatbotIcon';
 
 function WebDevPage() {
   const [playlists, setPlaylists] = useState(initialPlaylists);
@@ -222,6 +223,7 @@ function WebDevPage() {
           );
         })}
       </div>
+      <ChatbotIcon />
     </div>
   );
 }
