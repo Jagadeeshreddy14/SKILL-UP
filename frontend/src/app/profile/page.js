@@ -329,7 +329,7 @@ function ProfilePage() {
           </div>
         </div>
       </div>
-      <ToastContainer position="bottom-right" theme="colored" />
+   
     </div>
   );
 }

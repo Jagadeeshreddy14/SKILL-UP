@@ -1,8 +1,8 @@
-// app/components/ChatbotIcon/ChatbotModal.js
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Send, X, Bot, Loader2, User } from "lucide-react";
+import ReactMarkdown from 'react-markdown';
 
 // Initialize Gemini AI
 const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
@@ -62,7 +62,7 @@ const ChatbotModal = ({ isOpen, onClose }) => {
     setIsLoading(true);
 
     try {
-      const prompt = `You are a helpful assistant. Answer concisely based on the user's question.\n\nQuestion: ${userMessage.content}`;
+      const prompt = `You are a helpful assistant. Use Markdown formatting in your responses when appropriate (e.g., **bold** for emphasis, *italic* for terms, \`code\` for code snippets, etc.). Answer concisely based on the user's question.\n\nQuestion: ${userMessage.content}`;
       const result = await chat.sendMessage(prompt);
       const response = result.response;
 
@@ -94,19 +94,50 @@ const ChatbotModal = ({ isOpen, onClose }) => {
     }
   };
 
+  const MessageContent = ({ content, type }) => {
+    if (type === "user") {
+      return <div className="whitespace-pre-wrap">{content}</div>;
+    }
+    
+    return (
+      <ReactMarkdown
+        className="markdown-content"
+        components={{
+          p: ({ children }) => <p className="mb-2">{children}</p>,
+          code: ({ children }) => (
+            <code className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono">
+              {children}
+            </code>
+          ),
+          pre: ({ children }) => (
+            <pre className="bg-gray-100 p-3 rounded-lg my-2 overflow-x-auto">
+              {children}
+            </pre>
+          ),
+          ul: ({ children }) => <ul className="list-disc ml-4 mb-2">{children}</ul>,
+          ol: ({ children }) => (
+            <ol className="list-decimal ml-4 mb-2">{children}</ol>
+          ),
+        }}
+      >
+        {content}
+      </ReactMarkdown>
+    );
+  };
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed bottom-20 right-8 w-[45%] h-[550px] bg-white rounded-lg shadow-xl flex flex-col border border-gray-200 z-50">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-t-lg">
-        <Bot className="h-8 w-8" /> {/* Robot logo on the left */}
-        <h2 className="text-xl font-semibold">AI Assistant</h2> {/* Centered */}
+        <Bot className="h-8 w-8" />
+        <h2 className="text-xl font-semibold">AI Assistant</h2>
         <button
           onClick={onClose}
           className="p-1 hover:bg-white/10 rounded-full transition-colors"
         >
-          <X className="h-6 w-6" /> {/* Close button on the right */}
+          <X className="h-6 w-6" />
         </button>
       </div>
 
@@ -138,7 +169,7 @@ const ChatbotModal = ({ isOpen, onClose }) => {
                   {message.type === "user" ? "You" : "AI Assistant"}
                 </span>
               </div>
-              <div className="whitespace-pre-wrap">{message.content}</div>
+              <MessageContent content={message.content} type={message.type} />
             </div>
           </div>
         ))}
