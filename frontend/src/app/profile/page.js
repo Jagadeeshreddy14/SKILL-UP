@@ -80,6 +80,7 @@ function ProfilePage() {
           leetCode: profileData.leetCode,
           codeforces: profileData.codeforces,
           codechef: profileData.codechef,
+          geeksforgeeks: profileData.geeksforgeeks,
         })
         .where(eq(ProfileData.clerkId, clerkUserId));
 
@@ -101,10 +102,17 @@ function ProfilePage() {
         body: JSON.stringify({
           clerkId: clerkUserId,
           leetCode: profileData.leetCode,
+          geeksforgeeks: profileData.geeksforgeeks,
+          codeforces: profileData.codeforces,
+          codechef: profileData.codechef
         }),
       });
-
-      if (!response.ok) throw new Error("Failed to update stats");
+  
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to update stats");
+      }
+      
       toast.success("Stats updated successfully!");
     } catch (error) {
       console.error("Error refreshing coding stats:", error);
@@ -256,7 +264,7 @@ function ProfilePage() {
 
   const renderCodingProfiles = () => (
     <div className="space-y-4">
-      {['leetCode', 'codeforces', 'codechef'].map((platform) => (
+      {['leetCode', 'codeforces', 'codechef','geeksforgeeks'].map((platform) => (
         <div key={platform} className="space-y-2">
           <label className="block text-sm font-medium text-gray-700 capitalize">
             {platform} Username

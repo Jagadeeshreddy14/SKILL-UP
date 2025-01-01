@@ -23,11 +23,17 @@ const PlatformCard = ({ platform, stats }) => {
       barColor: "bg-blue-500",
       textColor: "text-blue-700",
     },
-    Codechef: {
+    CodeChef: {
       logo: "/images/codechef.jpg",
       bgGradient: "from-purple-500 to-pink-500",
       barColor: "bg-purple-500",
       textColor: "text-purple-700",
+    },
+    GeeksforGeeks: {
+      logo: "/images/gfg.png",
+      bgGradient: "from-green-400 to-green-600",
+      barColor: "bg-green-500",
+      textColor: "text-green-700",
     },
   };
 

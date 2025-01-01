@@ -1,80 +1,84 @@
 import { db } from "../../utils/db";
 import { CodingPlatformStats } from "../../utils/schema";
-import { fetchLeetCodeStats } from "../../utils/platformAPI";
+import { 
+  fetchLeetCodeStats, 
+  fetchGeeksForGeeksStats, 
+  fetchCodeforcesStats, 
+  fetchCodeChefStats 
+} from "../../utils/platformAPI";
 import { eq, and } from "drizzle-orm";
 
 export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const { clerkId, leetCode } = req.body;
+  if (req.method !== "POST") {
+    return res.status(405).end();
+  }
 
-    try {
-      // Fetch stats for LeetCode
-      const leetCodeStats = await fetchLeetCodeStats(leetCode);
-      console.log("Fetched LeetCode stats:", leetCodeStats);
+  const { clerkId, leetCode, geeksforgeeks, codeforces, codechef } = req.body;
 
-      if (!leetCodeStats) {
-        throw new Error("Failed to fetch LeetCode stats");
+  try {
+    const platforms = [
+      leetCode && { name: 'LeetCode', username: leetCode, fetchFn: fetchLeetCodeStats },
+      geeksforgeeks && { name: 'GeeksforGeeks', username: geeksforgeeks, fetchFn: fetchGeeksForGeeksStats },
+      codeforces && { name: 'Codeforces', username: codeforces, fetchFn: fetchCodeforcesStats },
+      codechef && { name: 'CodeChef', username: codechef, fetchFn: fetchCodeChefStats }
+    ].filter(Boolean);
+
+    for (const platform of platforms) {
+      const stats = await platform.fetchFn(platform.username);
+
+      if (!stats) {
+        throw new Error(`Failed to fetch ${platform.name} stats`);
       }
 
-      // Filter only defined properties to avoid issues with null values
       const dataToInsertOrUpdate = {
-        ...(leetCodeStats.solvedCount !== undefined && { solvedCount: leetCodeStats.solvedCount || 0 }),
-        ...(leetCodeStats.rating !== undefined && { rating: leetCodeStats.rating || 0 }),
-        ...(leetCodeStats.highestRating !== undefined && { highestRating: leetCodeStats.highestRating }),
-        ...(leetCodeStats.globalRank !== undefined && { globalRank: leetCodeStats.globalRank }),
-        ...(leetCodeStats.countryRank !== undefined && { countryRank: leetCodeStats.countryRank }),
-        ...(leetCodeStats.easyCount !== undefined && { easyCount: leetCodeStats.easyCount || 0 }),
-        ...(leetCodeStats.mediumCount !== undefined && { mediumCount: leetCodeStats.mediumCount || 0 }),
-        ...(leetCodeStats.hardCount !== undefined && { hardCount: leetCodeStats.hardCount || 0 }),
-        ...(leetCodeStats.totalquestions !== undefined && { totalquestions: leetCodeStats.totalquestions || 0 }),
-        ...(leetCodeStats.totaleasy !== undefined && {  easyquestions: leetCodeStats.totaleasy || 0 }),
-        ...(leetCodeStats.totalmedium !== undefined && { mediumquestions: leetCodeStats.totalmedium || 0 }),
-        ...(leetCodeStats.totalhard !== undefined && { hardquestions: leetCodeStats.totalhard || 0 }),
-        lastUpdated: leetCodeStats.lastUpdated,
+        solvedCount: stats.solvedCount || "0",
+        rating: stats.rating || null,
+        highestRating: stats.highestRating || null,
+        globalRank: stats.globalRank || null,
+        countryRank: stats.countryRank || null,
+        lastUpdated: stats.lastUpdated,
+        easyCount: stats.easyCount || "0",
+        mediumCount: stats.mediumCount || "0",
+        hardCount: stats.hardCount || "0",
+        fundamentalCount: stats.fundamentalCount || "0",
+        totalcontest: stats.totalcontest || "0"
       };
 
-      console.log("Data to insert or update:", dataToInsertOrUpdate);
-
-      // Check for an existing record
       const existingRecord = await db
         .select()
         .from(CodingPlatformStats)
         .where(
           and(
             eq(CodingPlatformStats.clerkId, clerkId),
-            eq(CodingPlatformStats.platform, "LeetCode")
+            eq(CodingPlatformStats.platform, platform.name)
           )
         )
         .limit(1);
 
       if (existingRecord.length > 0) {
-        // Update the existing record
         await db
           .update(CodingPlatformStats)
           .set(dataToInsertOrUpdate)
           .where(
             and(
               eq(CodingPlatformStats.clerkId, clerkId),
-              eq(CodingPlatformStats.platform, "LeetCode")
+              eq(CodingPlatformStats.platform, platform.name)
             )
           );
       } else {
-        // Insert a new record
         await db
           .insert(CodingPlatformStats)
           .values({
             clerkId,
-            platform: "LeetCode",
-            ...dataToInsertOrUpdate,
+            platform: platform.name,
+            ...dataToInsertOrUpdate
           });
       }
-
-      res.status(200).json({ message: "Platform stats updated/inserted successfully!" });
-    } catch (error) {
-      console.error("Database operation failed:", error.message, error.stack);
-      res.status(500).json({ error: `Database operation failed: ${error.message}` });
     }
-  } else {
-    res.status(405).end(); // Method Not Allowed
+
+    res.status(200).json({ message: "Platform stats updated successfully!" });
+  } catch (error) {
+    console.error("Database operation failed:", error.message, error.stack);
+    res.status(500).json({ error: `Database operation failed: ${error.message}` });
   }
 }

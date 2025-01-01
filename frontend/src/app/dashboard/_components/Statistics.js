@@ -7,7 +7,7 @@ const Statistics = ({ stats }) => {
   // Handle case where stats is a single object or empty
   const statsArray = Array.isArray(stats) ? stats : stats ? [stats] : [];
 
-  const platforms = ["LeetCode", "Codeforces", "Codechef"];
+  const platforms = ["LeetCode", "Codeforces", "CodeChef","GeeksforGeeks"];
   const availableStats = statsArray.filter((stat) =>
     platforms.includes(stat.platform)
   );

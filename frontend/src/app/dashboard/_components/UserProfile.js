@@ -15,7 +15,7 @@ import {
   FaTwitter,
   FaGlobe,
 } from "react-icons/fa";
-import { SiLeetcode, SiCodeforces, SiCodechef } from "react-icons/si";
+import { SiLeetcode, SiCodeforces, SiCodechef, SiGeeksforgeeks } from "react-icons/si";
 
 const InfoItem = ({ icon: Icon, text, link, className = "" }) => {
   const content = (
@@ -163,6 +163,12 @@ export default function UserProfile({ profileData = {}, isEditing = false }) {
                 text={profileData.codechef || "CodeChef"}
                 link={`https://www.codechef.com/users/${profileData.codechef}`}
                 className="hover:bg-orange-50"
+              />
+              <InfoItem 
+              icon={SiGeeksforgeeks}
+              text={profileData.geeksforgeeks || "GeeksforGeeks"}
+              link={`https://auth.geeksforgeeks.org/user/${profileData.geeksforgeeks}`}
+              className="hover:bg-green-50"
               />
             </div>
           </div>
