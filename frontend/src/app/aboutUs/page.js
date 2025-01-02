@@ -47,7 +47,7 @@ function AboutUs() {
     },
     {
       name: "Aman Kumar Bind",
-      role: "Frontend Developer",
+      role: "FullStack Developer",
       image: "/images/aman.jpg",
       social: {
         instagram: "https://www.instagram.com/aman.bind0909/",

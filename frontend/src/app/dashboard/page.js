@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import UserProfile from "./_components/UserProfile";
+import { ProfileData } from "../../../utils/schema";
 import Statistics from "./_components/Statistics";
 import TotalStatsCard from "./_components/TotalStatsCard";
 import { useUser } from "@clerk/clerk-react";
@@ -9,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CPStatsCard from "./_components/CPStatsCard";
 
 export default function Dashboard() {
   const { user } = useUser();
@@ -26,25 +28,26 @@ export default function Dashboard() {
         body: JSON.stringify({ clerkId: clerkUserId }),
       });
       const data = await response.json();
-
+      
       if (response.status === 200) {
         if (data.isNew) {
           setIsNew(true);
           toast.success("Welcome, new user! Please fill in your profile.");
         }
         setProfileData(data.profile);
+        return data.profile; // Return the profile data
       } else {
         throw new Error(data.error || "Failed to fetch profile data");
       }
     } catch (error) {
       console.error("Error fetching profile data:", error);
       toast.error("Failed to fetch profile data. Please try again later.");
-    } finally {
+      } finally {
       setIsLoading(false);
     }
   };
 
-  const fetchStatsData = async () => {
+  const fetchStatsData = async (profile) => {
     try {
       const response = await fetch("/api/stats", {
         method: "POST",
@@ -65,10 +68,10 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-    if (clerkUserId) {
-      Promise.all([fetchProfileData(), fetchStatsData()]);
+          if (clerkUserId) {
+        Promise.all([fetchProfileData(), fetchStatsData()]);
     }
-  }, [clerkUserId]);
+        }, [clerkUserId]);
 
   if (isLoading) {
     return (
@@ -106,7 +109,6 @@ export default function Dashboard() {
         )}
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-1">
-          {/* Profile Section */}
           <div className="lg:col-span-1">
             <div className="lg:sticky lg:top-6">
               {profileData ? (
@@ -121,7 +123,6 @@ export default function Dashboard() {
             </div>
           </div>
 
-          {/* Stats Section */}
           <div className="lg:col-span-2 space-y-6">
             <Card className="shadow-sm hover:shadow-md transition-all duration-200">
               <CardContent className="p-1">
@@ -131,8 +132,14 @@ export default function Dashboard() {
                   <NoDataCard message="No platform stats available" />
                 )}
               </CardContent>
+              <CardContent className="p-1">
+                {userData ? (
+                  <CPStatsCard stats={userData} />
+                ) : (
+                  <NoDataCard message="No platform stats available" />
+                )}
+              </CardContent>
             </Card>
-
             <Card className="shadow-sm hover:shadow-md transition-all duration-200">
               <CardContent className="p-1">
                 {userData ? (

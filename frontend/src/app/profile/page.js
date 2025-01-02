@@ -13,6 +13,7 @@ import {
   Github, Linkedin, Twitter, Instagram, Globe, Code
 } from "lucide-react";
 
+
 function ProfilePage() {
   const { user } = useUser();
   const clerkUserId = user?.id;
