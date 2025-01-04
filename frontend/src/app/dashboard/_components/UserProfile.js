@@ -10,9 +10,13 @@ import { SiLeetcode, SiCodeforces, SiCodechef, SiGeeksforgeeks } from "react-ico
 
 const InfoItem = ({ icon: Icon, text, link, className = "" }) => {
   const content = (
-    <div className={`flex items-start space-x-3 p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300 ${className}`}>
-      <Icon className="text-white/70 w-4 h-4 flex-shrink-0 mt-0.5" />
-      <span className="text-white/90 text-sm break-words flex-1">{text}</span>
+    <div className={`flex items-center space-x-4 p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300 min-h-[3.5rem] ${className}`}>
+      <div className="flex-shrink-0">
+        <Icon className="text-white/70 w-5 h-5" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <span className="text-white/90  ">{text}</span>
+      </div>
     </div>
   );
 
@@ -25,35 +29,38 @@ const InfoItem = ({ icon: Icon, text, link, className = "" }) => {
 
 const SectionTitle = ({ icon: Icon, title }) => (
   <div className="flex items-center space-x-2 mb-4 pb-2 border-b border-white/10">
-    <Icon className="text-indigo-400 w-4 h-4" />
+    <Icon className="text-indigo-400 w-5 h-5" />
     <h3 className="text-base font-medium text-white/90">{title}</h3>
   </div>
 );
 
-export default function UserProfile({ profileData = {}, isEditing = false }) {
+export default function UserProfile({ profileData = {}}) {
   const { user } = useUser();
 
   return (
     <div className="w-full max-w-3xl mx-auto p-3">
       <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 via-indigo-950 to-purple-900 shadow-2xl border border-white/10">
-        <div className="h-48 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-            <div className="absolute inset-0 backdrop-blur-md bg-black/20" />
-          </div>
-          <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
-            <div className="w-32 h-32 rounded-2xl border-4 border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm">
+        {/* Header Section with Fixed Height and Proper Z-indexing */}
+        <div className="relative h-32">
+
+          
+          {/* Profile Image Container */}
+          <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-1/2 z-10">
+            <div className="w-32 h-32 rounded-2xl border-4 border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm bg-gray-900">
               <Image
                 src={user.imageUrl}
                 alt="User Profile"
                 width={128}
                 height={128}
                 className="object-cover"
+                priority
               />
             </div>
           </div>
         </div>
 
-        <div className="px-6 pt-20 pb-6">
+        {/* Content Section with Proper Spacing */}
+        <div className="px-6 pt-20 pb-6 relative z-0">
           <div className="text-center">
             <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-200">
               {profileData.name || "Anonymous User"}
@@ -66,10 +73,10 @@ export default function UserProfile({ profileData = {}, isEditing = false }) {
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+          <div >
             <div>
               <SectionTitle icon={FaEnvelope} title="Personal Information" />
-              <div className="space-y-3">
+              <div className="space-y-4">
                 <InfoItem icon={FaEnvelope} text={profileData.primaryEmail} />
                 <InfoItem icon={FaMapMarkerAlt} text={profileData.location || "Location not specified"} />
                 <InfoItem icon={FaBirthdayCake} text={profileData.dateOfBirth ? new Date(profileData.dateOfBirth).toLocaleDateString() : "Birth date not specified"} />
@@ -79,7 +86,7 @@ export default function UserProfile({ profileData = {}, isEditing = false }) {
 
             <div>
               <SectionTitle icon={FaGlobe} title="Social Links" />
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {[
                   { icon: FaGithub, name: "github", hoverClass: "hover:border-gray-400" },
                   { icon: FaLinkedin, name: "linkedin", hoverClass: "hover:border-blue-400" },
@@ -101,11 +108,11 @@ export default function UserProfile({ profileData = {}, isEditing = false }) {
 
           <div className="mt-8">
             <SectionTitle icon={FaMedal} title="Coding Profiles" />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+            <div >
               {[
                 { icon: SiLeetcode, name: "leetCode", url: "leetcode.com", hoverClass: "hover:border-yellow-400" },
                 { icon: SiCodeforces, name: "codeforces", url: "codeforces.com/profile", hoverClass: "hover:border-blue-400" },
-                { icon: SiCodechef, name: "codechef", url: "codechef.com/users", hoverClass: "hover:border-orange-400" },
+                { icon: SiCodechef, name: "codechef", url: "codechef.com/users", hoverClass: "hover:border-yellow-400" },
                 { icon: SiGeeksforgeeks, name: "geeksforgeeks", url: "auth.geeksforgeeks.org/user", hoverClass: "hover:border-green-400" }
               ].map(({ icon, name, url, hoverClass }) => (
                 <InfoItem
