@@ -2,11 +2,13 @@
 import { useEffect, useState } from "react";
 import UserProfile from "./_components/UserProfile";
 import { ProfileData } from "../../../utils/schema";
-import Statistics from "./_components/Statistics";
-import TotalStatsCard from "./_components/TotalStatsCard";
+import PlatfromCards from "./_components/PlatfromCards";
+import DsaStatsCard from "./_components/DsaStatsCard";
 import { useUser } from "@clerk/clerk-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { RefreshCw } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,6 +21,39 @@ export default function Dashboard() {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isNew, setIsNew] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const handleRefreshCodingStats = async () => {
+    setIsRefreshing(true);
+    toast.info("Updating coding stats...");
+    try {
+      const response = await fetch("/api/updatePlatformStats", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clerkId: clerkUserId,
+          leetCode: profileData.leetCode,
+          geeksforgeeks: profileData.geeksforgeeks,
+          codeforces: profileData.codeforces,
+          codechef: profileData.codechef
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to update stats");
+      }
+
+      // Refresh the stats data after successful update
+      await fetchStatsData();
+      toast.success("Stats updated successfully!");
+    } catch (error) {
+      console.error("Error refreshing coding stats:", error);
+      toast.error("Failed to update stats");
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   const fetchProfileData = async () => {
     try {
@@ -35,14 +70,14 @@ export default function Dashboard() {
           toast.success("Welcome, new user! Please fill in your profile.");
         }
         setProfileData(data.profile);
-        return data.profile; // Return the profile data
+        return data.profile;
       } else {
         throw new Error(data.error || "Failed to fetch profile data");
       }
     } catch (error) {
       console.error("Error fetching profile data:", error);
       toast.error("Failed to fetch profile data. Please try again later.");
-      } finally {
+    } finally {
       setIsLoading(false);
     }
   };
@@ -68,21 +103,21 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
-          if (clerkUserId) {
-        Promise.all([fetchProfileData(), fetchStatsData()]);
+    if (clerkUserId) {
+      Promise.all([fetchProfileData(), fetchStatsData()]);
     }
-        }, [clerkUserId]);
+  }, [clerkUserId]);
 
   if (isLoading) {
     return (
-      <div className="container mx-auto p-6 space-y-6 m-1 mt-5">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-1">
-            <Skeleton className="h-[600px] w-full rounded-xl" />
+      <div className="container max-w-7xl mx-auto p-8">
+        <div className="grid grid-cols-12 gap-8">
+          <div className="col-span-12 lg:col-span-4">
+            <Skeleton className="h-[600px] rounded-2xl" />
           </div>
-          <div className="lg:col-span-2 space-y-6">
-            <Skeleton className="h-[200px] w-full rounded-xl" />
-            <Skeleton className="h-[400px] w-full rounded-xl" />
+          <div className="col-span-12 lg:col-span-8 space-y-8">
+            <Skeleton className="h-[200px] rounded-2xl" />
+            <Skeleton className="h-[400px] rounded-2xl" />
           </div>
         </div>
       </div>
@@ -90,60 +125,67 @@ export default function Dashboard() {
   }
 
   const NoDataCard = ({ message }) => (
-    <Card className="bg-gray-50">
-      <CardContent className="flex items-center justify-center min-h-[200px]">
+    <Card className="bg-gray-50/80 backdrop-blur-sm">
+      <CardContent className="flex items-center justify-center h-48">
         <p className="text-lg text-gray-500">{message}</p>
       </CardContent>
     </Card>
   );
 
   return (
-    <div className="min-h-screen bg-gray-50/50 mt-16">
-      <div className="container mx-auto ">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100/50 pt-20 pb-12">
+      <div className="container max-w-7xl mx-auto px-4">
         {isNew && (
-          <Alert className="mb-1 bg-blue-50 text-blue-700 border-blue-200">
+          <Alert className="mb-8 bg-blue-50/80 backdrop-blur-sm text-blue-700 border-blue-200">
             <AlertDescription>
               Welcome! Please complete your profile to get started.
             </AlertDescription>
           </Alert>
         )}
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-1">
-          <div className="lg:col-span-1">
-            <div className="lg:sticky lg:top-6">
-              {profileData ? (
-                <Card className="shadow-sm hover:shadow-md transition-all duration-200">
-                  <CardContent className="p-0">
+        <div className="grid grid-cols-12 gap-8">
+          <div className="col-span-12 lg:col-span-4">
+            <div className="lg:sticky lg:top-8 space-y-4">
+              <Card className="shadow-lg hover:shadow-xl transition-all duration-300">
+                <CardContent className="p-0">
+                  {profileData ? (
                     <UserProfile profileData={profileData} isEditing={true} />
-                  </CardContent>
-                </Card>
-              ) : (
-                <NoDataCard message="No profile data available" />
+                  ) : (
+                    <NoDataCard message="No profile data available" />
+                  )}
+                </CardContent>
+              </Card>
+              {profileData && (
+                <Button 
+                  className="w-full"
+                  onClick={handleRefreshCodingStats}
+                  disabled={isRefreshing}
+                >
+                  <RefreshCw className={`mr-2 h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
+                  {isRefreshing ? 'Refreshing Stats...' : 'Refresh Coding Stats'}
+                </Button>
               )}
             </div>
           </div>
 
-          <div className="lg:col-span-2 space-y-6">
-            <Card className="shadow-sm hover:shadow-md transition-all duration-200">
-              <CardContent className="p-1">
+          <div className="col-span-12 lg:col-span-8 space-y-8">
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6 space-y-6">
                 {userData ? (
-                  <TotalStatsCard stats={userData} />
-                ) : (
-                  <NoDataCard message="No platform stats available" />
-                )}
-              </CardContent>
-              <CardContent className="p-1">
-                {userData ? (
-                  <CPStatsCard stats={userData} />
+                  <>
+                    <DsaStatsCard stats={userData} />
+                    <CPStatsCard stats={userData} />
+                  </>
                 ) : (
                   <NoDataCard message="No platform stats available" />
                 )}
               </CardContent>
             </Card>
-            <Card className="shadow-sm hover:shadow-md transition-all duration-200">
-              <CardContent className="p-1">
+
+            <Card className="shadow-lg hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-6">
                 {userData ? (
-                  <Statistics stats={userData} />
+                  <PlatfromCards stats={userData} />
                 ) : (
                   <NoDataCard message="No platform stats available" />
                 )}

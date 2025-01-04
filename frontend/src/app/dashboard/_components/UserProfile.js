@@ -1,27 +1,18 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useUser } from "@clerk/clerk-react";
 import {
-  FaMapMarkerAlt,
-  FaUniversity,
-  FaEnvelope,
-  FaBirthdayCake,
-  FaGithub,
-  FaEdit,
-  FaMedal,
-  FaInstagram,
-  FaLinkedin,
-  FaTwitter,
-  FaGlobe,
+  FaMapMarkerAlt, FaUniversity, FaEnvelope, FaBirthdayCake,
+  FaGithub, FaMedal, FaInstagram, FaLinkedin,
+  FaTwitter, FaGlobe,
 } from "react-icons/fa";
 import { SiLeetcode, SiCodeforces, SiCodechef, SiGeeksforgeeks } from "react-icons/si";
 
 const InfoItem = ({ icon: Icon, text, link, className = "" }) => {
   const content = (
-    <div className={`flex items-start space-x-3 p-1.5 rounded-lg hover:bg-gray-50 transition-colors ${className}`}>
-      <Icon className="text-gray-600 w-4 h-4 flex-shrink-0 mt-0.5" />
-      <span className="text-gray-800 text-sm break-words flex-1">{text}</span>
+    <div className={`flex items-start space-x-3 p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300 ${className}`}>
+      <Icon className="text-white/70 w-4 h-4 flex-shrink-0 mt-0.5" />
+      <span className="text-white/90 text-sm break-words flex-1">{text}</span>
     </div>
   );
 
@@ -29,15 +20,13 @@ const InfoItem = ({ icon: Icon, text, link, className = "" }) => {
     <a href={link} target="_blank" rel="noopener noreferrer" className="block">
       {content}
     </a>
-  ) : (
-    content
-  );
+  ) : content;
 };
 
 const SectionTitle = ({ icon: Icon, title }) => (
-  <div className="flex items-center space-x-2 mb-3 pb-2 border-b border-gray-100">
-    <Icon className="text-indigo-500 w-4 h-4" />
-    <h3 className="text-base font-semibold text-gray-900">{title}</h3>
+  <div className="flex items-center space-x-2 mb-4 pb-2 border-b border-white/10">
+    <Icon className="text-indigo-400 w-4 h-4" />
+    <h3 className="text-base font-medium text-white/90">{title}</h3>
   </div>
 );
 
@@ -46,135 +35,91 @@ export default function UserProfile({ profileData = {}, isEditing = false }) {
 
   return (
     <div className="w-full max-w-3xl mx-auto p-3">
-      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-        {/* Header Background with Image */}
-        <div className="h-40 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 relative">
-          <div className="absolute inset-0 bg-black/10" />
-          {/* Centered profile image container */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-16">
-            <div className="w-28 h-28 rounded-full border-4 border-white shadow-xl overflow-hidden">
+      <div className="rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 via-indigo-950 to-purple-900 shadow-2xl border border-white/10">
+        <div className="h-48 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+            <div className="absolute inset-0 backdrop-blur-md bg-black/20" />
+          </div>
+          <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
+            <div className="w-32 h-32 rounded-2xl border-4 border-white/10 shadow-2xl overflow-hidden backdrop-blur-sm">
               <Image
                 src={user.imageUrl}
                 alt="User Profile"
-                width={112}
-                height={112}
+                width={128}
+                height={128}
                 className="object-cover"
               />
             </div>
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="px-4 pt-20 pb-4">
-          {/* Header Section */}
+        <div className="px-6 pt-20 pb-6">
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900">
+            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-purple-200">
               {profileData.name || "Anonymous User"}
             </h2>
-            <p className="text-sm text-gray-500 mt-1">@{profileData.clerkId}</p>
-            {/* Bio Section */}
+            <p className="text-sm text-white/50 mt-1">@{profileData.clerkId}</p>
             {profileData.bio && (
-              <p className="mt-3 text-gray-600 text-sm max-w-xl mx-auto break-words">
+              <p className="mt-4 text-white/70 text-sm max-w-xl mx-auto break-words">
                 {profileData.bio}
               </p>
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            {/* Personal Information */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             <div>
               <SectionTitle icon={FaEnvelope} title="Personal Information" />
-              <div className="space-y-2">
-                <InfoItem
-                  icon={FaEnvelope}
-                  text={profileData.primaryEmail}
-                />
-                <InfoItem
-                  icon={FaMapMarkerAlt}
-                  text={profileData.location || "Location not specified"}
-                />
-                <InfoItem
-                  icon={FaBirthdayCake}
-                  text={profileData.dateOfBirth ? new Date(profileData.dateOfBirth).toLocaleDateString() : "Birth date not specified"}
-                />
-                <InfoItem
-                  icon={FaUniversity}
-                  text="Indian Institute of Information Technology (IIIT), Bhagalpur"
-                />
+              <div className="space-y-3">
+                <InfoItem icon={FaEnvelope} text={profileData.primaryEmail} />
+                <InfoItem icon={FaMapMarkerAlt} text={profileData.location || "Location not specified"} />
+                <InfoItem icon={FaBirthdayCake} text={profileData.dateOfBirth ? new Date(profileData.dateOfBirth).toLocaleDateString() : "Birth date not specified"} />
+                <InfoItem icon={FaUniversity} text="Indian Institute of Information Technology (IIIT), Bhagalpur" />
               </div>
             </div>
 
-            {/* Social Links */}
             <div>
               <SectionTitle icon={FaGlobe} title="Social Links" />
-              <div className="space-y-2">
-                <InfoItem
-                  icon={FaGithub}
-                  text={profileData.github || "GitHub"}
-                  link={profileData.github}
-                  className="hover:bg-gray-50"
-                />
-                <InfoItem
-                  icon={FaLinkedin}
-                  text={profileData.linkedin || "LinkedIn"}
-                  link={profileData.linkedin}
-                  className="hover:bg-blue-50"
-                />
-                <InfoItem
-                  icon={FaTwitter}
-                  text={profileData.twitter || "Twitter"}
-                  link={profileData.twitter}
-                  className="hover:bg-sky-50"
-                />
-                <InfoItem
-                  icon={FaInstagram}
-                  text={profileData.instagram || "Instagram"}
-                  link={profileData.instagram}
-                  className="hover:bg-pink-50"
-                />
-                <InfoItem
-                  icon={FaGlobe}
-                  text={profileData.portfolio || "Portfolio"}
-                  link={profileData.portfolio}
-                  className="hover:bg-green-50"
-                />
+              <div className="space-y-3">
+                {[
+                  { icon: FaGithub, name: "github", hoverClass: "hover:border-gray-400" },
+                  { icon: FaLinkedin, name: "linkedin", hoverClass: "hover:border-blue-400" },
+                  { icon: FaTwitter, name: "twitter", hoverClass: "hover:border-sky-400" },
+                  { icon: FaInstagram, name: "instagram", hoverClass: "hover:border-pink-400" },
+                  { icon: FaGlobe, name: "portfolio", hoverClass: "hover:border-emerald-400" }
+                ].map(({ icon, name, hoverClass }) => (
+                  <InfoItem
+                    key={name}
+                    icon={icon}
+                    text={profileData[name] || name.charAt(0).toUpperCase() + name.slice(1)}
+                    link={profileData[name]}
+                    className={hoverClass}
+                  />
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Coding Profiles Section */}
-          <div className="mt-6">
+          <div className="mt-8">
             <SectionTitle icon={FaMedal} title="Coding Profiles" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <InfoItem
-                icon={SiLeetcode}
-                text={profileData.leetCode || "LeetCode"}
-                link={`https://leetcode.com/${profileData.leetCode}`}
-                className="hover:bg-yellow-50"
-              />
-              <InfoItem
-                icon={SiCodeforces}
-                text={profileData.codeforces || "Codeforces"}
-                link={`https://codeforces.com/profile/${profileData.codeforces}`}
-                className="hover:bg-blue-50"
-              />
-              <InfoItem
-                icon={SiCodechef}
-                text={profileData.codechef || "CodeChef"}
-                link={`https://www.codechef.com/users/${profileData.codechef}`}
-                className="hover:bg-orange-50"
-              />
-              <InfoItem 
-              icon={SiGeeksforgeeks}
-              text={profileData.geeksforgeeks || "GeeksforGeeks"}
-              link={`https://auth.geeksforgeeks.org/user/${profileData.geeksforgeeks}`}
-              className="hover:bg-green-50"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+              {[
+                { icon: SiLeetcode, name: "leetCode", url: "leetcode.com", hoverClass: "hover:border-yellow-400" },
+                { icon: SiCodeforces, name: "codeforces", url: "codeforces.com/profile", hoverClass: "hover:border-blue-400" },
+                { icon: SiCodechef, name: "codechef", url: "codechef.com/users", hoverClass: "hover:border-orange-400" },
+                { icon: SiGeeksforgeeks, name: "geeksforgeeks", url: "auth.geeksforgeeks.org/user", hoverClass: "hover:border-green-400" }
+              ].map(({ icon, name, url, hoverClass }) => (
+                <InfoItem
+                  key={name}
+                  icon={icon}
+                  text={profileData[name] || name}
+                  link={profileData[name] ? `https://${url}/${profileData[name]}` : undefined}
+                  className={hoverClass}
+                />
+              ))}
             </div>
           </div>
 
-          {/* Creation Date */}
-          <div className="mt-6 text-xs text-gray-500 text-right">
+          <div className="mt-8 text-xs text-white/40 text-right">
             Member since: {new Date(profileData.createdAt).toLocaleDateString()}
           </div>
         </div>
