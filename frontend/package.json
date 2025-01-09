@@ -17,6 +17,7 @@
     "@heroicons/react": "^2.1.5",
     "@neondatabase/serverless": "^0.10.3",
     "@radix-ui/react-popover": "^1.1.2",
+    "@radix-ui/react-progress": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "@shadcn/ui": "^0.0.4",
     "aos": "^2.3.4",
