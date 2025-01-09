@@ -44,7 +44,6 @@ export default function Dashboard() {
         throw new Error(error.message || "Failed to update stats");
       }
 
-      // Refresh the stats data after successful update
       await fetchStatsData();
       toast.success("Stats updated successfully!");
     } catch (error) {
@@ -108,45 +107,45 @@ export default function Dashboard() {
     }
   }, [clerkUserId]);
 
+  const NoDataCard = ({ message }) => (
+    <Card className="bg-gray-50/80 backdrop-blur-sm">
+      <CardContent className="flex items-center justify-center min-h-[12rem]">
+        <p className="text-sm sm:text-base text-gray-500 px-4 text-center">{message}</p>
+      </CardContent>
+    </Card>
+  );
+
   if (isLoading) {
     return (
-      <div className="container max-w-7xl mx-auto p-8">
-        <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-12 lg:col-span-4">
-            <Skeleton className="h-[600px] rounded-2xl" />
+      <div className="container mx-auto p-4 sm:p-6 lg:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+          <div className="lg:col-span-4">
+            <Skeleton className="h-[400px] sm:h-[500px] lg:h-[600px] rounded-xl" />
           </div>
-          <div className="col-span-12 lg:col-span-8 space-y-8">
-            <Skeleton className="h-[200px] rounded-2xl" />
-            <Skeleton className="h-[400px] rounded-2xl" />
+          <div className="lg:col-span-8 space-y-4 sm:space-y-6 lg:space-y-8">
+            <Skeleton className="h-[150px] sm:h-[180px] lg:h-[200px] rounded-xl" />
+            <Skeleton className="h-[300px] sm:h-[350px] lg:h-[400px] rounded-xl" />
           </div>
         </div>
       </div>
     );
   }
 
-  const NoDataCard = ({ message }) => (
-    <Card className="bg-gray-50/80 backdrop-blur-sm">
-      <CardContent className="flex items-center justify-center h-48">
-        <p className="text-lg text-gray-500">{message}</p>
-      </CardContent>
-    </Card>
-  );
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100/50 pt-20 pb-12">
-      <div className="container max-w-7xl mx-auto px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100/50 pt-16 sm:pt-20 pb-8 sm:pb-12">
+      <div className="container mx-auto px-4 max-w-[100vw] sm:max-w-7xl">
         {isNew && (
-          <Alert className="mb-8 bg-blue-50/80 backdrop-blur-sm text-blue-700 border-blue-200">
-            <AlertDescription>
+          <Alert className="mb-6 sm:mb-8 bg-blue-50/80 backdrop-blur-sm text-blue-700 border-blue-200">
+            <AlertDescription className="text-sm sm:text-base">
               Welcome! Please complete your profile to get started.
             </AlertDescription>
           </Alert>
         )}
         
-        <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-12 lg:col-span-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-8">
+          <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-8 space-y-4">
-              <Card className="shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card className="shadow-md hover:shadow-lg transition-all duration-300">
                 <CardContent className="p-0">
                   {profileData ? (
                     <UserProfile profileData={profileData} isEditing={true} />
@@ -157,20 +156,20 @@ export default function Dashboard() {
               </Card>
               {profileData && (
                 <Button 
-                  className="w-full"
+                  className="w-full text-sm sm:text-base py-2 sm:py-3"
                   onClick={handleRefreshCodingStats}
                   disabled={isRefreshing}
                 >
-                  <RefreshCw className={`mr-2 h-4 w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
-                  {isRefreshing ? 'Refreshing Stats...' : 'Refresh Coding Stats'}
+                  <RefreshCw className={`mr-2 h-3 w-3 sm:h-4 sm:w-4 ${isRefreshing ? 'animate-spin' : ''}`} />
+                  {isRefreshing ? 'Refreshing...' : 'Refresh Coding Stats'}
                 </Button>
               )}
             </div>
           </div>
 
-          <div className="col-span-12 lg:col-span-8 space-y-8">
-            <Card className="shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-6 space-y-6">
+          <div className="lg:col-span-8 space-y-4 sm:space-y-6 lg:space-y-8">
+            <Card className="shadow-md hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-4 sm:p-6 space-y-4 sm:space-y-6">
                 {userData ? (
                   <>
                     <DsaStatsCard stats={userData} />
@@ -182,8 +181,8 @@ export default function Dashboard() {
               </CardContent>
             </Card>
 
-            <Card className="shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardContent className="p-6">
+            <Card className="shadow-md hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-4 sm:p-6">
                 {userData ? (
                   <PlatfromCards stats={userData} />
                 ) : (
