@@ -44,18 +44,18 @@ const Footer = () => {
             </div>
 
             {/* Address */}
-            <div className="space-y-4">
+       {   /*  <div className="space-y-4">
               <h3 className="text-xl font-semibold mb-4">Location</h3>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-400 mt-1" />
                 <div>
-                  <p className="font-medium">Indian Institute of Information Technology (IIIT), Bhagalpur</p>
-                  <p className="text-gray-300">Sabour, Bhagalpur</p>
-                  <p className="text-gray-300">Bihar 813210</p>
+                  <p className="font-medium">SkillUp Training Center</p>
+                  <p className="text-gray-300"></p>
+                  <p className="text-gray-300"></p>
                 </div>
               </div>
             </div>
-
+*/}
             {/* Social Links */}
             <div className="space-y-4">
               <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
@@ -78,7 +78,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} IIIT Bhagalpur. All rights reserved.</p>
+            <p>© {new Date().getFullYear()}  All rights reserved.</p>
           </div>
         </div>
       </footer>
